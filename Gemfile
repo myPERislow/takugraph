@@ -6,15 +6,17 @@ git_source(:github) do |repo_name|
 end
 
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+# base
 gem 'rails', '~> 5.1.4'
-# Use mysql as the database for Active Record
+
+# database
 gem 'mysql2', '>= 0.3.18', '< 0.5'
-# Use Puma as the app server
+
+# server
 gem 'puma', '~> 3.7'
-# Use SCSS for stylesheets
+
+# view
 gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -48,6 +50,12 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-byebug'
   gem 'pry-rails'
+end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
