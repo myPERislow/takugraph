@@ -1,0 +1,19 @@
+current directory: /Users/admin/Desktop/takugraph/vendor/bundle/ruby/2.4.0/gems/byebug-10.0.0/ext/byebug
+/Users/admin/.rbenv/versions/2.4.1/bin/ruby -r ./siteconf20180210-46445-1aelkjd.rb extconf.rb
+creating Makefile
+
+current directory: /Users/admin/Desktop/takugraph/vendor/bundle/ruby/2.4.0/gems/byebug-10.0.0/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /Users/admin/Desktop/takugraph/vendor/bundle/ruby/2.4.0/gems/byebug-10.0.0/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/admin/Desktop/takugraph/vendor/bundle/ruby/2.4.0/gems/byebug-10.0.0/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.bundle ./.gem.20180210-46445-8suc06/byebug
