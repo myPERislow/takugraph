@@ -3,10 +3,12 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
+  # ファイルの保存方法(デフォルトはファイル)
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
 
+  # 保存パス
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
@@ -21,6 +23,8 @@ class PhotoUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
+
+  # ファイルのサイズの変換
   # Process files as they are uploaded:
   # process scale: [200, 300]
   #
@@ -33,12 +37,14 @@ class PhotoUploader < CarrierWave::Uploader::Base
   #   process resize_to_fit: [50, 50]
   # end
 
+  # 拡張子の変換
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   # def extension_whitelist
   #   %w(jpg jpeg gif png)
   # end
 
+  # ファイル名の変換
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
