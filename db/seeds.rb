@@ -1,7 +1,5 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# 初期データの投入
+# 開発用のダミーユーザや、都道府県情報のようなマスタデータ(ほぼ参照のみを行うデータ)を最初からデータベースに登録しておくと便利。
+# Railsではdb/seeds.rbに定義を記述することで、データベースに初期データを投入できる。
+#`bin/rails db:seed`で実行
+# bin/rails db:seedは何回でも実行できる。
