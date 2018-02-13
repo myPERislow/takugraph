@@ -6,4 +6,5 @@ class Album < ApplicationRecord
   mount_uploader :photographs, PhotoUploader
   # マウントすることによって、
   # モデルへの画像ファイルのアップロードが可能になる。
+  belongs_to :order
 end

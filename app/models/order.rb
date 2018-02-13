@@ -4,4 +4,6 @@ class Order < ApplicationRecord
   validates :day, presence: true
   validates :location, presence: true
   validates :phone_number, presence: true
+
+  has_one :album, dependent: :destroy
 end
