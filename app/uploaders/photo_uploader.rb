@@ -1,7 +1,8 @@
 class PhotoUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  # CarrierWaveでMiniMagickを使う。
+  include CarrierWave::MiniMagick
 
   # ファイルの保存方法(デフォルトはファイル)
   # Choose what kind of storage to use for this uploader:
@@ -37,12 +38,25 @@ class PhotoUploader < CarrierWave::Uploader::Base
   #   process resize_to_fit: [50, 50]
   # end
 
+  # indexページにサムネイル、showページに大きな画像を表示したい。
+  # アップローダファイルに画像の大きさを表示
+
+  # showページ(大きな画像)
+  version :show do
+    process resize_to_fit: [400, 400]
+  end
+  # indexページ(サムネイル)
+  version :thumb do
+    process resize_to_fit: [300, nil]
+  end
+
   # 拡張子の変換
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  # def extension_whitelist
-  #   %w(jpg jpeg gif png)
-  # end
+  # ファイルには拡張子の数がたくさんあるが、アップロードする画像の拡張子を制限する。
+  def extension_whitelist
+    %w(jpg jpeg gif png)
+  end
 
   # ファイル名の変換
   # Override the filename of the uploaded files:

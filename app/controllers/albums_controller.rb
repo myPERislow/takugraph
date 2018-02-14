@@ -2,7 +2,7 @@ class AlbumsController < ApplicationController
   before_action :set_album, only: [:show, :edit, :update, :destroy]
   # GET /album
   def index
-    @album = Album.all
+    @albums = Album.all
   end
 
   # GET /albums/1
