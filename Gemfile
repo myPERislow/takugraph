@@ -26,7 +26,7 @@ gem 'mini_magick'
 
 # Haml
 gem 'haml-rails'
-gem 'erb2haml'
+
 
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -61,6 +61,8 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-byebug'
   gem 'pry-rails'
+  # erbをhamlに変換
+  gem 'erb2haml'
 end
 
 group :test do

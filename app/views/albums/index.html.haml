@@ -3,4 +3,4 @@
 %table
   - @albums.each do |album|
     %th
-    %td= link_to image_tag(album.photographs[0].thumb.url),album
+      %td= link_to image_tag(album.photographs[0].thumb.url), album
