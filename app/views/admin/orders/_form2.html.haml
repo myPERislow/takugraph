@@ -1,0 +1,21 @@
+= form_for @order,  :url => {:controller => :orders, :action =>:update} do |f|
+  .container
+    .form-group
+      = f.label :first_name
+      = f.text_field :first_name, :class => "form-control"
+    .form-group
+      = f.label :last_name
+      = f.text_field :last_name , :class => "form-control"
+    .form-group
+      = f.label :day
+      = f.text_field :day , :class => "form-control"
+    .form-group
+      = f.label :location
+      = f.text_field :location, :class => "form-control"
+    .form-group
+      = f.label :phone_number
+      = f.text_field :phone_number, :class => "form-control"
+    .form-group
+      = f.label :comment
+      = f.text_field :comment, :class => "form-control"
+    = f.submit :class => "btn btn-primary"

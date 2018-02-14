@@ -24,6 +24,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
 
+# Haml
+gem 'haml-rails'
+gem 'erb2haml'
+
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

@@ -1,0 +1,31 @@
+.page-header
+  %h1 依頼詳細
+.container
+  %table
+    %tr
+      %th id
+      %td= @order.id
+    %tr
+      %th first_name
+      %td= @order.first_name
+    %tr
+      %th last_name
+      %td= @order.last_name
+    %tr
+      %th day
+      %td= @order.day
+    %tr
+      %th location
+      %td= @order.location
+    %tr
+      %th phone_number
+      %td= @order.phone_number
+    %tr
+      %th comment
+      %td= @order.comment
+    %tr
+      %th created_at
+      %td= @order.created_at
+  = link_to 'back', admin_orders_path,  class: 'btn btn-default'
+  = link_to 'edit', edit_admin_order_path(@order), class: 'btn btn-default'
+  = link_to 'destroy', admin_order_path(@order), :method => :delete, :confirm => "本当に削除していいですか", class: 'btn btn-default'

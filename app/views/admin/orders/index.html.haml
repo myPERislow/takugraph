@@ -1,0 +1,26 @@
+.page-header
+  %h1 依頼一覧
+%table
+  %tr
+    %th id
+    %th first_name
+    %th last_name
+    %th day
+    %th location
+    %th phone_number
+    %th comment
+    %th created_at
+  - @orders.each do |order|
+    %tr
+      %td= order.id
+      %td= order.first_name
+      %td= order.last_name
+      %td= order.day
+      %td= order.location
+      %td= order.phone_number
+      %td= order.comment
+      %td= order.created_at
+      %td= link_to '納品', new_album_path(order)
+      %td= link_to '詳細', admin_order_path(order)
+      %td= link_to '編集', edit_admin_order_path(order)
+      %td= link_to '削除', admin_order_path(order), :method => :delete, :confirm => "本当に削除していいですか?"

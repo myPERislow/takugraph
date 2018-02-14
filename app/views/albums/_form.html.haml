@@ -1,0 +1,11 @@
+= form_for @album do |f|
+  - if @album.errors.any?
+    .alert.alert-danger
+      %ul
+        - @album.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :photographs
+    = f.file_field :photographs, multiple: true
+  .action
+    = f.submit '納品', class: 'btn btn-default'

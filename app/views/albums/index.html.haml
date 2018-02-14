@@ -1,0 +1,6 @@
+.page-header
+  %h1 写真一覧
+%table
+  - @albums.each do |album|
+    %th
+    %td= link_to image_tag(album.photographs[0].thumb.url),album
