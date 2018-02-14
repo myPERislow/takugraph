@@ -6,3 +6,6 @@
     <% end %>
   </div>
 </div>
+<%= link_to "編集", edit_album_path(@album) %>
+<%= link_to "削除", method: :delete, confirm: 'Are you sure?' %>
+<%= link_to "戻る", albums_path %>
