@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-
+  before_action :set_album, only: [:show, :edit, :update, :destroy]
   # GET /album
   def index
     @album = Album.all
@@ -16,31 +16,39 @@ class AlbumsController < ApplicationController
 
   # GET /album/1/edit
   def edit
+
   end
 
   # POST /album
   def create
     album = Album.new(album_params)
     if album.save
-      redirect_to __path, notice: 'Album was successfully created'
+      redirect_to album_path(album), notice: 'Album was successfully created.'
     else
       render :new
     end
   end
 
   def update
-    album = Album.find(params[:id])
+    if @album.update(album_params)
+      redirect_to albums_path, notice: 'Album was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
-    album = Album.find(params[:id])
-    album.destroy
-    redirect_to _____path, notice: 'Album was successfully destroyed.'
+    @album.destroy
+    redirect_to albums_path, notice: 'Album was successfully destroyed.'
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_album
+      @album = Album.find(params[:id])
+    end
 
     def album_params
-      params.require(:album).permint(:order_id, :photographs)
+      params.require(:album).permit({photographs: []})
     end
 end

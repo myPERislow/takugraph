@@ -5,5 +5,5 @@ class Order < ApplicationRecord
   validates :location, presence: true
   validates :phone_number, presence: true
 
-  has_one :album, dependent: :destroy
+  # has_one :album, dependent: :destroy
 end

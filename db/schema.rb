@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180213061644) do
+ActiveRecord::Schema.define(version: 20180213093330) do
 
   create_table "albums", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "photographs"
+    t.json "photographs"
     t.string "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
