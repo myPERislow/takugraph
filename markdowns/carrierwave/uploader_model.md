@@ -105,6 +105,7 @@ process resize_to_fill: [100, 100, "Center"]
 process resize_to_limit: [300, 200, "#ffffff", "Center"]
 ```
 - サムネイル用、フォトギャラリー用等、別バージョンでリサイズした画像を作成する。
+
 ```ruby
 version :thubm do
   process resize_to_fill: [50, 50]
@@ -123,3 +124,4 @@ version :gallery do
     "gallery.jpg"
   end
 end
+```

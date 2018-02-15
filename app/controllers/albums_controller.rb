@@ -12,18 +12,19 @@ class AlbumsController < ApplicationController
   # GET /album/new
   def new
     @album = Album.new
+    @order = params[:order]
   end
 
   # GET /album/1/edit
   def edit
-
+    @order = @album.order_id
   end
 
   # POST /album
   def create
-    album = Album.new(album_params)
-    if album.save
-      redirect_to album_path(album), notice: 'Album was successfully created.'
+    @album = Album.new(album_params)
+    if @album.save
+      redirect_to album_path(@album), notice: 'Album was successfully created.'
     else
       render :new
     end
@@ -49,6 +50,6 @@ class AlbumsController < ApplicationController
     end
 
     def album_params
-      params.require(:album).permit({photographs: []})
+      params.require(:album).permit(:order_id, {photographs: []})
     end
 end

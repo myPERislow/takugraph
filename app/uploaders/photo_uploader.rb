@@ -42,9 +42,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # 横幅を500pxに制限して保存する。
 
   # showページ(大きな画像)
-  version :show do
-    process resize_to_fit: [500, nil]
-  end
+  process resize_to_limit: [500, nil]
   # indexページ(サムネイル)
   version :thumb do
     process resize_to_fit: [300, nil]

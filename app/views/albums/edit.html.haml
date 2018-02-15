@@ -1,5 +1,5 @@
 .page-header
   %h1 納品編集ページ
-= render 'form'
+= render 'form', {order: @order}
 = link_to "詳細", album_path(@album)
 = link_to "戻る", albums_path
