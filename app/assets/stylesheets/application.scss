@@ -1,1 +1,7 @@
+// Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+//注意点
+//- Sassファイルでは*= require、*= require_treeを削除する
+//- Sassファイルではインポートに@importを利用する
+//- Sassファイルで*= requireを利用すると他のスタイルシートではBootstrapのmixinや変数を利用できなくなる
