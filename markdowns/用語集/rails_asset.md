@@ -1,0 +1,5 @@
+[Rails Assetの管理についてまとめる](https://qiita.com/shizuma/items/1980bf885906c73238b6)
+[Rails require_treeを排除し、アセットパイプラインで、コントローラー固有のCSS、JavaScriptを組み込む](https://beautifulajax.dip.jp/?p=303)
+[Rails5におけるJavaScriptの取り扱い(jQuery, React and ES6)](http://koltatt.net/programing/rails5_js/)
+[Rails4 コントローラ毎に必要最低限なアセットパイプライン（Asset Pipeline）ファイルを読み込む方法](https://qiita.com/yuzo_nishikawa/items/4ee600e72acf60d906ed)
+[Turbolinksをオフにしないためにやったこと](https://gist.github.com/saboyutaka/8727377)

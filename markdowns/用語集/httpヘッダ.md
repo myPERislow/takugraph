@@ -1,0 +1,1 @@
+[httpヘッダ](https://blog.redbox.ne.jp/what-is-cdn4.html)
