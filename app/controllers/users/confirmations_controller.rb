@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# ユーザー登録確認メール内のリンクを押した時につかう
 
 class Users::ConfirmationsController < Devise::ConfirmationsController
   # GET /resource/confirmation/new

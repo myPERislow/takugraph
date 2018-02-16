@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   get 'home/flow', to: 'home#flow'
 
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
 
   resources :albums
 
