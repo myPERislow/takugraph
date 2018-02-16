@@ -12,6 +12,21 @@
       <li class="nav-item">
         <%= link_to '申し込み', new_admin_order_path, class: 'nav-link'%>
       </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'マイページ', new_admin_order_path, class: 'nav-link'%>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'ログアウト', new_admin_order_path, class: 'nav-link'%>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to '新規登録', new_user_session_path, class: 'nav-link'%>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'ログイン', new_user_registration_path , class: 'nav-link'%>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>
