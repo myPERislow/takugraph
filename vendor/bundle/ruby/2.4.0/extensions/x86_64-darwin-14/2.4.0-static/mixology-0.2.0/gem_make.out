@@ -1,0 +1,758 @@
+current directory: /Users/admin/Desktop/takugraph/vendor/bundle/ruby/2.4.0/gems/mixology-0.2.0/ext/mixology
+/Users/admin/.rbenv/versions/2.4.1/bin/ruby -r ./siteconf20180216-2477-17qef85.rb extconf.rb
+creating Makefile
+
+current directory: /Users/admin/Desktop/takugraph/vendor/bundle/ruby/2.4.0/gems/mixology-0.2.0/ext/mixology
+make "DESTDIR=" clean
+
+current directory: /Users/admin/Desktop/takugraph/vendor/bundle/ruby/2.4.0/gems/mixology-0.2.0/ext/mixology
+make "DESTDIR="
+compiling mixology.c
+mixology.c:9:10: warning: 'RCLASS_SUPER' macro redefined [-Wmacro-redefined]
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+         ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:920:9: note: previous definition is here
+#define RCLASS_SUPER(c) rb_class_get_superclass(c)
+        ^
+mixology.c:30:18: warning: 'RClassDeprecated' is deprecated: RClass is internal use only [-Wdeprecated-declarations]
+    if (KLASS_OF(RCLASS_SUPER(klass)) != KLASS_OF(RCLASS_SUPER(include_class))) {
+                 ^
+mixology.c:9:27: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                          ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:30: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1203:30: note: expanded from macro 'R_CAST'
+#define R_CAST(st)   (struct st*)
+                             ^
+mixology.c:4:29: note: expanded from macro 'KLASS_OF'
+#define KLASS_OF(c) (RBASIC(c)->klass)
+                            ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1204:38: note: expanded from macro 'RBASIC'
+#define RBASIC(obj)  (R_CAST(RBasic)(obj))
+                                     ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:916:8: note: 'RClassDeprecated' has been explicitly marked deprecated here
+struct RClass {
+       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin14/ruby/config.h:127:33: note: expanded from macro 'DEPRECATED_TYPE'
+#define DEPRECATED_TYPE(mesg,x) x __attribute__ ((__deprecated__ mesg))
+                                ^
+mixology.c:30:18: error: no member named 'super' in 'struct RClassDeprecated'
+    if (KLASS_OF(RCLASS_SUPER(klass)) != KLASS_OF(RCLASS_SUPER(include_class))) {
+                 ^
+mixology.c:9:38: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                                     ^
+mixology.c:4:29: note: expanded from macro 'KLASS_OF'
+#define KLASS_OF(c) (RBASIC(c)->klass)
+                            ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1204:38: note: expanded from macro 'RBASIC'
+#define RBASIC(obj)  (R_CAST(RBasic)(obj))
+                                     ^
+mixology.c:30:51: warning: 'RClassDeprecated' is deprecated: RClass is internal use only [-Wdeprecated-declarations]
+    if (KLASS_OF(RCLASS_SUPER(klass)) != KLASS_OF(RCLASS_SUPER(include_class))) {
+                                                  ^
+mixology.c:9:27: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                          ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:30: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1203:30: note: expanded from macro 'R_CAST'
+#define R_CAST(st)   (struct st*)
+                             ^
+mixology.c:4:29: note: expanded from macro 'KLASS_OF'
+#define KLASS_OF(c) (RBASIC(c)->klass)
+                            ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1204:38: note: expanded from macro 'RBASIC'
+#define RBASIC(obj)  (R_CAST(RBasic)(obj))
+                                     ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:916:8: note: 'RClassDeprecated' has been explicitly marked deprecated here
+struct RClass {
+       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin14/ruby/config.h:127:33: note: expanded from macro 'DEPRECATED_TYPE'
+#define DEPRECATED_TYPE(mesg,x) x __attribute__ ((__deprecated__ mesg))
+                                ^
+mixology.c:30:51: error: no member named 'super' in 'struct RClassDeprecated'
+    if (KLASS_OF(RCLASS_SUPER(klass)) != KLASS_OF(RCLASS_SUPER(include_class))) {
+                                                  ^
+mixology.c:9:38: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                                     ^
+mixology.c:4:29: note: expanded from macro 'KLASS_OF'
+#define KLASS_OF(c) (RBASIC(c)->klass)
+                            ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1204:38: note: expanded from macro 'RBASIC'
+#define RBASIC(obj)  (R_CAST(RBasic)(obj))
+                                     ^
+mixology.c:33:22: warning: 'RClassDeprecated' is deprecated: RClass is internal use only [-Wdeprecated-declarations]
+    if (RCLASS_SUPER(RCLASS_SUPER(include_class)) && BUILTIN_TYPE(RCLASS_SUPER(include_class)) == T_ICLASS) {
+                     ^
+mixology.c:9:27: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                          ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:30: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1203:30: note: expanded from macro 'R_CAST'
+#define R_CAST(st)   (struct st*)
+                             ^
+mixology.c:9:34: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                                 ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:38: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                                     ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:916:8: note: 'RClassDeprecated' has been explicitly marked deprecated here
+struct RClass {
+       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin14/ruby/config.h:127:33: note: expanded from macro 'DEPRECATED_TYPE'
+#define DEPRECATED_TYPE(mesg,x) x __attribute__ ((__deprecated__ mesg))
+                                ^
+mixology.c:33:22: error: no member named 'super' in 'struct RClassDeprecated'
+    if (RCLASS_SUPER(RCLASS_SUPER(include_class)) && BUILTIN_TYPE(RCLASS_SUPER(include_class)) == T_ICLASS) {
+                     ^
+mixology.c:9:38: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                                     ^
+mixology.c:9:34: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                                 ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:38: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                     ~~~~~~~~~~~~~~~~^~~~~
+mixology.c:33:67: warning: 'RClassDeprecated' is deprecated: RClass is internal use only [-Wdeprecated-declarations]
+    if (RCLASS_SUPER(RCLASS_SUPER(include_class)) && BUILTIN_TYPE(RCLASS_SUPER(include_class)) == T_ICLASS) {
+                                                                  ^
+mixology.c:9:27: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                          ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:30: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1203:30: note: expanded from macro 'R_CAST'
+#define R_CAST(st)   (struct st*)
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:518:41: note: expanded from macro 'BUILTIN_TYPE'
+#define BUILTIN_TYPE(x) RB_BUILTIN_TYPE(x)
+                                        ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:517:52: note: expanded from macro 'RB_BUILTIN_TYPE'
+#define RB_BUILTIN_TYPE(x) (int)(((struct RBasic*)(x))->flags & RUBY_T_MASK)
+                                                   ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:916:8: note: 'RClassDeprecated' has been explicitly marked deprecated here
+struct RClass {
+       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin14/ruby/config.h:127:33: note: expanded from macro 'DEPRECATED_TYPE'
+#define DEPRECATED_TYPE(mesg,x) x __attribute__ ((__deprecated__ mesg))
+                                ^
+mixology.c:33:67: error: no member named 'super' in 'struct RClassDeprecated'
+    if (RCLASS_SUPER(RCLASS_SUPER(include_class)) && BUILTIN_TYPE(RCLASS_SUPER(include_class)) == T_ICLASS) {
+                                                                  ^
+mixology.c:9:38: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                                     ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:518:41: note: expanded from macro 'BUILTIN_TYPE'
+#define BUILTIN_TYPE(x) RB_BUILTIN_TYPE(x)
+                                        ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:517:52: note: expanded from macro 'RB_BUILTIN_TYPE'
+#define RB_BUILTIN_TYPE(x) (int)(((struct RBasic*)(x))->flags & RUBY_T_MASK)
+                                                   ^
+mixology.c:34:30: warning: 'RClassDeprecated' is deprecated: RClass is internal use only [-Wdeprecated-declarations]
+        remove_nested_module(RCLASS_SUPER(klass), RCLASS_SUPER(include_class));
+                             ^
+mixology.c:9:27: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                          ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:30: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1203:30: note: expanded from macro 'R_CAST'
+#define R_CAST(st)   (struct st*)
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:916:8: note: 'RClassDeprecated' has been explicitly marked deprecated here
+struct RClass {
+       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin14/ruby/config.h:127:33: note: expanded from macro 'DEPRECATED_TYPE'
+#define DEPRECATED_TYPE(mesg,x) x __attribute__ ((__deprecated__ mesg))
+                                ^
+mixology.c:34:30: error: no member named 'super' in 'struct RClassDeprecated'
+        remove_nested_module(RCLASS_SUPER(klass), RCLASS_SUPER(include_class));
+                             ^~~~~~~~~~~~~~~~~~~
+mixology.c:9:38: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                          ~~~~~~~~~  ^
+mixology.c:34:51: warning: 'RClassDeprecated' is deprecated: RClass is internal use only [-Wdeprecated-declarations]
+        remove_nested_module(RCLASS_SUPER(klass), RCLASS_SUPER(include_class));
+                                                  ^
+mixology.c:9:27: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                          ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:30: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1203:30: note: expanded from macro 'R_CAST'
+#define R_CAST(st)   (struct st*)
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:916:8: note: 'RClassDeprecated' has been explicitly marked deprecated here
+struct RClass {
+       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin14/ruby/config.h:127:33: note: expanded from macro 'DEPRECATED_TYPE'
+#define DEPRECATED_TYPE(mesg,x) x __attribute__ ((__deprecated__ mesg))
+                                ^
+mixology.c:34:51: error: no member named 'super' in 'struct RClassDeprecated'
+        remove_nested_module(RCLASS_SUPER(klass), RCLASS_SUPER(include_class));
+                                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+mixology.c:9:38: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                          ~~~~~~~~~  ^
+mixology.c:36:5: warning: 'RClassDeprecated' is deprecated: RClass is internal use only [-Wdeprecated-declarations]
+    RCLASS_SUPER(klass) = RCLASS_SUPER(RCLASS_SUPER(klass));
+    ^
+mixology.c:9:27: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                          ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:30: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1203:30: note: expanded from macro 'R_CAST'
+#define R_CAST(st)   (struct st*)
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:916:8: note: 'RClassDeprecated' has been explicitly marked deprecated here
+struct RClass {
+       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin14/ruby/config.h:127:33: note: expanded from macro 'DEPRECATED_TYPE'
+#define DEPRECATED_TYPE(mesg,x) x __attribute__ ((__deprecated__ mesg))
+                                ^
+mixology.c:36:5: error: no member named 'super' in 'struct RClassDeprecated'
+    RCLASS_SUPER(klass) = RCLASS_SUPER(RCLASS_SUPER(klass));
+    ^~~~~~~~~~~~~~~~~~~
+mixology.c:9:38: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                          ~~~~~~~~~  ^
+mixology.c:36:40: warning: 'RClassDeprecated' is deprecated: RClass is internal use only [-Wdeprecated-declarations]
+    RCLASS_SUPER(klass) = RCLASS_SUPER(RCLASS_SUPER(klass));
+                                       ^
+mixology.c:9:27: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                          ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:30: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1203:30: note: expanded from macro 'R_CAST'
+#define R_CAST(st)   (struct st*)
+                             ^
+mixology.c:9:34: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                                 ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:38: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                                     ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:916:8: note: 'RClassDeprecated' has been explicitly marked deprecated here
+struct RClass {
+       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin14/ruby/config.h:127:33: note: expanded from macro 'DEPRECATED_TYPE'
+#define DEPRECATED_TYPE(mesg,x) x __attribute__ ((__deprecated__ mesg))
+                                ^
+mixology.c:36:40: error: no member named 'super' in 'struct RClassDeprecated'
+    RCLASS_SUPER(klass) = RCLASS_SUPER(RCLASS_SUPER(klass));
+                                       ^
+mixology.c:9:38: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                                     ^
+mixology.c:9:34: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                                 ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:38: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                     ~~~~~~~~~~~~~~~~^~~~~
+mixology.c:47:73: warning: 'RClassDeprecated' is deprecated: RClass is internal use only [-Wdeprecated-declarations]
+    for (klass = KLASS_OF(self); klass != rb_class_real(klass); klass = RCLASS_SUPER(klass)) {
+                                                                        ^
+mixology.c:9:27: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                          ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:30: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1203:30: note: expanded from macro 'R_CAST'
+#define R_CAST(st)   (struct st*)
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:916:8: note: 'RClassDeprecated' has been explicitly marked deprecated here
+struct RClass {
+       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin14/ruby/config.h:127:33: note: expanded from macro 'DEPRECATED_TYPE'
+#define DEPRECATED_TYPE(mesg,x) x __attribute__ ((__deprecated__ mesg))
+                                ^
+mixology.c:47:73: error: no member named 'super' in 'struct RClassDeprecated'
+    for (klass = KLASS_OF(self); klass != rb_class_real(klass); klass = RCLASS_SUPER(klass)) {
+                                                                        ^~~~~~~~~~~~~~~~~~~
+mixology.c:9:38: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                          ~~~~~~~~~  ^
+mixology.c:48:23: error: no member named 'super' in 'struct RClassDeprecated'
+        VALUE super = RCLASS_SUPER(klass);
+                      ^~~~~~~~~~~~~~~~~~~
+mixology.c:9:38: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                          ~~~~~~~~~  ^
+mixology.c:48:23: warning: 'RClassDeprecated' is deprecated: RClass is internal use only [-Wdeprecated-declarations]
+mixology.c:9:27: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                          ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:30: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1203:30: note: expanded from macro 'R_CAST'
+#define R_CAST(st)   (struct st*)
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:916:8: note: 'RClassDeprecated' has been explicitly marked deprecated here
+struct RClass {
+       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin14/ruby/config.h:127:33: note: expanded from macro 'DEPRECATED_TYPE'
+#define DEPRECATED_TYPE(mesg,x) x __attribute__ ((__deprecated__ mesg))
+                                ^
+mixology.c:51:21: warning: 'RClassDeprecated' is deprecated: RClass is internal use only [-Wdeprecated-declarations]
+                if (RCLASS_SUPER(module) && BUILTIN_TYPE(RCLASS_SUPER(module)) == T_ICLASS)
+                    ^
+mixology.c:9:27: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                          ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:30: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1203:30: note: expanded from macro 'R_CAST'
+#define R_CAST(st)   (struct st*)
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:916:8: note: 'RClassDeprecated' has been explicitly marked deprecated here
+struct RClass {
+       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin14/ruby/config.h:127:33: note: expanded from macro 'DEPRECATED_TYPE'
+#define DEPRECATED_TYPE(mesg,x) x __attribute__ ((__deprecated__ mesg))
+                                ^
+mixology.c:51:21: error: no member named 'super' in 'struct RClassDeprecated'
+                if (RCLASS_SUPER(module) && BUILTIN_TYPE(RCLASS_SUPER(module)) == T_ICLASS)
+                    ^~~~~~~~~~~~~~~~~~~~
+mixology.c:9:38: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                          ~~~~~~~~~  ^
+mixology.c:51:58: warning: 'RClassDeprecated' is deprecated: RClass is internal use only [-Wdeprecated-declarations]
+                if (RCLASS_SUPER(module) && BUILTIN_TYPE(RCLASS_SUPER(module)) == T_ICLASS)
+                                                         ^
+mixology.c:9:27: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                          ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:30: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1203:30: note: expanded from macro 'R_CAST'
+#define R_CAST(st)   (struct st*)
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:518:41: note: expanded from macro 'BUILTIN_TYPE'
+#define BUILTIN_TYPE(x) RB_BUILTIN_TYPE(x)
+                                        ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:517:52: note: expanded from macro 'RB_BUILTIN_TYPE'
+#define RB_BUILTIN_TYPE(x) (int)(((struct RBasic*)(x))->flags & RUBY_T_MASK)
+                                                   ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:916:8: note: 'RClassDeprecated' has been explicitly marked deprecated here
+struct RClass {
+       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin14/ruby/config.h:127:33: note: expanded from macro 'DEPRECATED_TYPE'
+#define DEPRECATED_TYPE(mesg,x) x __attribute__ ((__deprecated__ mesg))
+                                ^
+mixology.c:51:58: error: no member named 'super' in 'struct RClassDeprecated'
+                if (RCLASS_SUPER(module) && BUILTIN_TYPE(RCLASS_SUPER(module)) == T_ICLASS)
+                                                         ^
+mixology.c:9:38: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                                     ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:518:41: note: expanded from macro 'BUILTIN_TYPE'
+#define BUILTIN_TYPE(x) RB_BUILTIN_TYPE(x)
+                                        ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:517:52: note: expanded from macro 'RB_BUILTIN_TYPE'
+#define RB_BUILTIN_TYPE(x) (int)(((struct RBasic*)(x))->flags & RUBY_T_MASK)
+                                                   ^
+mixology.c:54:17: warning: 'RClassDeprecated' is deprecated: RClass is internal use only [-Wdeprecated-declarations]
+                RCLASS_SUPER(klass) = RCLASS_SUPER(RCLASS_SUPER(klass));
+                ^
+mixology.c:9:27: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                          ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:30: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1203:30: note: expanded from macro 'R_CAST'
+#define R_CAST(st)   (struct st*)
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:916:8: note: 'RClassDeprecated' has been explicitly marked deprecated here
+struct RClass {
+       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin14/ruby/config.h:127:33: note: expanded from macro 'DEPRECATED_TYPE'
+#define DEPRECATED_TYPE(mesg,x) x __attribute__ ((__deprecated__ mesg))
+                                ^
+mixology.c:54:17: error: no member named 'super' in 'struct RClassDeprecated'
+                RCLASS_SUPER(klass) = RCLASS_SUPER(RCLASS_SUPER(klass));
+                ^~~~~~~~~~~~~~~~~~~
+mixology.c:9:38: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                          ~~~~~~~~~  ^
+mixology.c:54:52: warning: 'RClassDeprecated' is deprecated: RClass is internal use only [-Wdeprecated-declarations]
+                RCLASS_SUPER(klass) = RCLASS_SUPER(RCLASS_SUPER(klass));
+                                                   ^
+mixology.c:9:27: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                          ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:30: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1203:30: note: expanded from macro 'R_CAST'
+#define R_CAST(st)   (struct st*)
+                             ^
+mixology.c:9:34: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                                 ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:38: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                                     ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:916:8: note: 'RClassDeprecated' has been explicitly marked deprecated here
+struct RClass {
+       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin14/ruby/config.h:127:33: note: expanded from macro 'DEPRECATED_TYPE'
+#define DEPRECATED_TYPE(mesg,x) x __attribute__ ((__deprecated__ mesg))
+                                ^
+mixology.c:54:52: error: no member named 'super' in 'struct RClassDeprecated'
+                RCLASS_SUPER(klass) = RCLASS_SUPER(RCLASS_SUPER(klass));
+                                                   ^
+mixology.c:9:38: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                                     ^
+mixology.c:9:34: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                                 ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:38: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                     ~~~~~~~~~~~~~~~~^~~~~
+mixology.c:55:17: warning: 'rb_clear_cache' is deprecated [-Wdeprecated-declarations]
+                rb_clear_cache();
+                ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/intern.h:391:26: note: 'rb_clear_cache' has been explicitly marked deprecated here
+NORETURN(DEPRECATED(void rb_clear_cache(void)));
+                         ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin14/ruby/config.h:125:56: note: expanded from macro 'DEPRECATED'
+#define DEPRECATED(x) __attribute__ ((__deprecated__)) x
+                                                       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin14/ruby/config.h:124:52: note: expanded from macro 'NORETURN'
+#define NORETURN(x) __attribute__ ((__noreturn__)) x
+                                                   ^
+mixology.c:64:19: error: no member named 'super' in 'struct RClassDeprecated'
+    VALUE super = RCLASS_SUPER(rb_singleton_class(self));
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mixology.c:9:38: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                          ~~~~~~~~~  ^
+mixology.c:64:19: warning: 'RClassDeprecated' is deprecated: RClass is internal use only [-Wdeprecated-declarations]
+mixology.c:9:27: note: expanded from macro 'RCLASS_SUPER'
+# define RCLASS_SUPER(c) (RCLASS(c)->super)
+                          ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:30: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1203:30: note: expanded from macro 'R_CAST'
+#define R_CAST(st)   (struct st*)
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:916:8: note: 'RClassDeprecated' has been explicitly marked deprecated here
+struct RClass {
+       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin14/ruby/config.h:127:33: note: expanded from macro 'DEPRECATED_TYPE'
+#define DEPRECATED_TYPE(mesg,x) x __attribute__ ((__deprecated__ mesg))
+                                ^
+mixology.c:69:26: warning: 'RClassDeprecated' is deprecated: RClass is internal use only [-Wdeprecated-declarations]
+    NEWOBJ(klass, struct RClass);
+                         ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:753:40: note: expanded from macro 'NEWOBJ'
+#define NEWOBJ(obj,type) RB_NEWOBJ(obj,type)
+                                       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:751:29: note: expanded from macro 'RB_NEWOBJ'
+#define RB_NEWOBJ(obj,type) type *(obj) = (type*)rb_newobj()
+                            ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:916:8: note: 'RClassDeprecated' has been explicitly marked deprecated here
+struct RClass {
+       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin14/ruby/config.h:127:33: note: expanded from macro 'DEPRECATED_TYPE'
+#define DEPRECATED_TYPE(mesg,x) x __attribute__ ((__deprecated__ mesg))
+                                ^
+mixology.c:69:26: warning: 'RClassDeprecated' is deprecated: RClass is internal use only [-Wdeprecated-declarations]
+    NEWOBJ(klass, struct RClass);
+                         ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:753:40: note: expanded from macro 'NEWOBJ'
+#define NEWOBJ(obj,type) RB_NEWOBJ(obj,type)
+                                       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:751:44: note: expanded from macro 'RB_NEWOBJ'
+#define RB_NEWOBJ(obj,type) type *(obj) = (type*)rb_newobj()
+                                           ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:916:8: note: 'RClassDeprecated' has been explicitly marked deprecated here
+struct RClass {
+       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin14/ruby/config.h:127:33: note: expanded from macro 'DEPRECATED_TYPE'
+#define DEPRECATED_TYPE(mesg,x) x __attribute__ ((__deprecated__ mesg))
+                                ^
+mixology.c:70:14: warning: incompatible pointer to integer conversion passing 'struct RClassDeprecated *' to parameter of type 'VALUE' (aka 'unsigned long') [-Wint-conversion]
+    OBJSETUP(klass, rb_cClass, T_ICLASS);
+             ^~~~~
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:755:40: note: expanded from macro 'OBJSETUP'
+#define OBJSETUP(obj,c,t) rb_obj_setup(obj, c, t) /* use NEWOBJ_OF instead of NEWOBJ()+OBJSETUP() */
+                                       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:750:26: note: passing argument to parameter 'obj' here
+VALUE rb_obj_setup(VALUE obj, VALUE klass, VALUE type);
+                         ^
+mixology.c:76:10: warning: 'RClassDeprecated' is deprecated: RClass is internal use only [-Wdeprecated-declarations]
+    if (!RCLASS_IV_TBL(module)) {
+         ^
+mixology.c:10:28: note: expanded from macro 'RCLASS_IV_TBL'
+# define RCLASS_IV_TBL(c) (RCLASS(c)->iv_tbl)
+                           ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:30: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1203:30: note: expanded from macro 'R_CAST'
+#define R_CAST(st)   (struct st*)
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:916:8: note: 'RClassDeprecated' has been explicitly marked deprecated here
+struct RClass {
+       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin14/ruby/config.h:127:33: note: expanded from macro 'DEPRECATED_TYPE'
+#define DEPRECATED_TYPE(mesg,x) x __attribute__ ((__deprecated__ mesg))
+                                ^
+mixology.c:76:10: error: no member named 'iv_tbl' in 'struct RClassDeprecated'
+    if (!RCLASS_IV_TBL(module)) {
+         ^~~~~~~~~~~~~~~~~~~~~
+mixology.c:10:39: note: expanded from macro 'RCLASS_IV_TBL'
+# define RCLASS_IV_TBL(c) (RCLASS(c)->iv_tbl)
+                           ~~~~~~~~~  ^
+mixology.c:77:9: warning: 'RClassDeprecated' is deprecated: RClass is internal use only [-Wdeprecated-declarations]
+        RCLASS_IV_TBL(module) = (void*)st_init_numtable();
+        ^
+mixology.c:10:28: note: expanded from macro 'RCLASS_IV_TBL'
+# define RCLASS_IV_TBL(c) (RCLASS(c)->iv_tbl)
+                           ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:30: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1203:30: note: expanded from macro 'R_CAST'
+#define R_CAST(st)   (struct st*)
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:916:8: note: 'RClassDeprecated' has been explicitly marked deprecated here
+struct RClass {
+       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin14/ruby/config.h:127:33: note: expanded from macro 'DEPRECATED_TYPE'
+#define DEPRECATED_TYPE(mesg,x) x __attribute__ ((__deprecated__ mesg))
+                                ^
+mixology.c:77:9: error: no member named 'iv_tbl' in 'struct RClassDeprecated'
+        RCLASS_IV_TBL(module) = (void*)st_init_numtable();
+        ^~~~~~~~~~~~~~~~~~~~~
+mixology.c:10:39: note: expanded from macro 'RCLASS_IV_TBL'
+# define RCLASS_IV_TBL(c) (RCLASS(c)->iv_tbl)
+                           ~~~~~~~~~  ^
+mixology.c:80:5: warning: 'RClassDeprecated' is deprecated: RClass is internal use only [-Wdeprecated-declarations]
+    RCLASS_IV_TBL(klass) = RCLASS_IV_TBL(module);
+    ^
+mixology.c:10:28: note: expanded from macro 'RCLASS_IV_TBL'
+# define RCLASS_IV_TBL(c) (RCLASS(c)->iv_tbl)
+                           ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:30: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1203:30: note: expanded from macro 'R_CAST'
+#define R_CAST(st)   (struct st*)
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:916:8: note: 'RClassDeprecated' has been explicitly marked deprecated here
+struct RClass {
+       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin14/ruby/config.h:127:33: note: expanded from macro 'DEPRECATED_TYPE'
+#define DEPRECATED_TYPE(mesg,x) x __attribute__ ((__deprecated__ mesg))
+                                ^
+mixology.c:80:5: error: no member named 'iv_tbl' in 'struct RClassDeprecated'
+    RCLASS_IV_TBL(klass) = RCLASS_IV_TBL(module);
+    ^~~~~~~~~~~~~~~~~~~~
+mixology.c:10:39: note: expanded from macro 'RCLASS_IV_TBL'
+# define RCLASS_IV_TBL(c) (RCLASS(c)->iv_tbl)
+                           ~~~~~~~~~  ^
+mixology.c:80:28: warning: 'RClassDeprecated' is deprecated: RClass is internal use only [-Wdeprecated-declarations]
+    RCLASS_IV_TBL(klass) = RCLASS_IV_TBL(module);
+                           ^
+mixology.c:10:28: note: expanded from macro 'RCLASS_IV_TBL'
+# define RCLASS_IV_TBL(c) (RCLASS(c)->iv_tbl)
+                           ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:30: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1203:30: note: expanded from macro 'R_CAST'
+#define R_CAST(st)   (struct st*)
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:916:8: note: 'RClassDeprecated' has been explicitly marked deprecated here
+struct RClass {
+       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin14/ruby/config.h:127:33: note: expanded from macro 'DEPRECATED_TYPE'
+#define DEPRECATED_TYPE(mesg,x) x __attribute__ ((__deprecated__ mesg))
+                                ^
+mixology.c:80:28: error: no member named 'iv_tbl' in 'struct RClassDeprecated'
+    RCLASS_IV_TBL(klass) = RCLASS_IV_TBL(module);
+                           ^~~~~~~~~~~~~~~~~~~~~
+mixology.c:10:39: note: expanded from macro 'RCLASS_IV_TBL'
+# define RCLASS_IV_TBL(c) (RCLASS(c)->iv_tbl)
+                           ~~~~~~~~~  ^
+mixology.c:81:5: warning: 'RClassDeprecated' is deprecated: RClass is internal use only [-Wdeprecated-declarations]
+    RCLASS_M_TBL(klass) = RCLASS_M_TBL(module);
+    ^
+mixology.c:8:27: note: expanded from macro 'RCLASS_M_TBL'
+# define RCLASS_M_TBL(c) (RCLASS(c)->m_tbl)
+                          ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1206:30: note: expanded from macro 'RCLASS'
+#define RCLASS(obj)  (R_CAST(RClass)(obj))
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:1203:30: note: expanded from macro 'R_CAST'
+#define R_CAST(st)   (struct st*)
+                             ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:916:8: note: 'RClassDeprecated' has been explicitly marked deprecated here
+struct RClass {
+       ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/ruby.h:913:16: note: expanded from macro 'RClass'
+#define RClass RClassDeprecated
+               ^
+/Users/admin/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin14/ruby/config.h:127:33: note: expanded from macro 'DEPRECATED_TYPE'
+#define DEPRECATED_TYPE(mesg,x) x __attribute__ ((__deprecated__ mesg))
+                                ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+25 warnings and 20 errors generated.
+make: *** [mixology.o] Error 1
+
+make failed, exit code 2
