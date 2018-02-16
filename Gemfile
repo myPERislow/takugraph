@@ -31,6 +31,8 @@ gem 'mini_magick'
 # Haml
 gem 'haml-rails'
 
+# devise
+gem 'devise'
 
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
