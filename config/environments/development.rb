@@ -20,8 +20,21 @@ Rails.application.configure do
 
   # In production, :host should be set to the actual host of your application.
 
-
+  # mail setting
+  config.action_mailer.perform_caching = false
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => "smtp.gmail.com",
+    :user_name =>ENV["GMAIL_ADRESS"],
+    :password => ENV["GMAIL_PASSWORD"],
+    :authentication => :login,
+    :enable_starttls_auto => true
+  }
+
 
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?
@@ -38,9 +51,9 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.perform_caching = false
+
+
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
