@@ -4,17 +4,21 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
   def change
     create_table :users do |t|
       ## Database authenticatable
+      ## パスワードを暗号化してDBに保存。認証はPOSTリクエスト or HTTPBasic認証
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
+      ## パスワードをリセットして、それを通知
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
 
       ## Rememberable
+      ## Cookieでユーザを記憶するトークンを生成・削除
       t.datetime :remember_created_at
 
       ## Trackable
+      ## サインイン回数・時間、IPアドレスを保存
       t.integer  :sign_in_count, default: 0, null: false
       t.datetime :current_sign_in_at
       t.datetime :last_sign_in_at
@@ -22,6 +26,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string   :last_sign_in_ip
 
       ## Confirmable
+      ## 新規登録入力後確認メールを送信して、届いたメールのURLがクリックされるとログイン可能になる仕組み
       t.string   :confirmation_token
       t.datetime :confirmed_at
       t.datetime :confirmation_sent_at
