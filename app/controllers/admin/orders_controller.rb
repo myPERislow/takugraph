@@ -1,5 +1,6 @@
 class Admin::OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :show, :edit, :update, :destory]
 
   def index
     @orders = Order.all
