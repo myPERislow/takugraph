@@ -14,6 +14,13 @@ Rails.application.routes.draw do
     resources :orders
   end
 
+  # ユーザー一覧ページ
+  get '/users', to: 'users#index'
+  # ユーザーのマイページ
+  get '/users/:id', to: 'users#show'
+  get '/users/schedule', to:'users#add_schedule'
+  patch '/users/update/:id', to:'users#update'
+  get '/users/schedule/index', to:'users#show_schedule'
 end
 
 # After signing in a user, confirming the account or updating the password,

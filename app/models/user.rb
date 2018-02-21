@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   enum role: {admin: 1, photographer: 2, member: 3 }
+
+  has_many :schedules
 end

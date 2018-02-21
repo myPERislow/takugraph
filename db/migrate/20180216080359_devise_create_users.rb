@@ -2,7 +2,7 @@
 
 class DeviseCreateUsers < ActiveRecord::Migration[5.1]
   def change
-    create_table :users do |t|
+    create_table :users, id: :integer  do |t|
       ## Database authenticatable
       ## パスワードを暗号化してDBに保存。認証はPOSTリクエスト or HTTPBasic認証
       t.string :email,              null: false, default: ""

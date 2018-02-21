@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180218041940) do
+ActiveRecord::Schema.define(version: 20180221010308) do
 
   create_table "albums", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.json "photographs"
@@ -26,6 +26,19 @@ ActiveRecord::Schema.define(version: 20180218041940) do
     t.string "location"
     t.string "phone_number"
     t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["day"], name: "index_orders_on_day"
+    t.index ["first_name"], name: "index_orders_on_first_name"
+    t.index ["last_name"], name: "index_orders_on_last_name"
+    t.index ["location"], name: "index_orders_on_location"
+    t.index ["phone_number"], name: "index_orders_on_phone_number"
+  end
+
+  create_table "schedules", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id"
+    t.date "target_day"
+    t.boolean "priority"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
