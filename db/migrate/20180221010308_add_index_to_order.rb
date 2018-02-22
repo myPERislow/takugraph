@@ -1,7 +1,7 @@
 class AddIndexToOrder < ActiveRecord::Migration[5.1]
   def change
     #indexの追加
-   #add_index :対象のテーブル名、インデックス対象のカラム名
+    #add_index :対象のテーブル名、インデックス対象のカラム名
     add_index :orders, :first_name
     add_index :orders, :last_name
     add_index :orders, :day

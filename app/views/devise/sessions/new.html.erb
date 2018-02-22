@@ -1,5 +1,15 @@
 <h2>Log in</h2>
 
+<!-- name:コントロールの名前であり、フォームデータとともに送信される -->
+<!-- placeholder: コントロールに何を入力できるかに関する、ユーザーへの助言です。
+　　　プレースホルダーのテキストはキャリッジリターンやラインフィードを含んではいけません。
+　　　注意：
+　　　　　placeholder属性を<label>要素の代わりに使用してはいけません。
+　　　　　この用途は誤っています。<label>要素はフォーム要素の役割を述べています。
+　　　　　つまり、どの種類の情報を求めているかを示します。
+　　　　　一方、placeholder属性は、入力すべき内容の体裁に関する助言です。
+　　　　　placeholder属性がユーザーに一切表示されない場合があるので、placeholderがなくても理解できるようにしなければなりません。 -->
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -8,7 +18,7 @@
 
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", placeholder: "password"%>
   </div>
 
   <% if devise_mapping.rememberable? -%>

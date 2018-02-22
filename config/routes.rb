@@ -18,9 +18,9 @@ Rails.application.routes.draw do
   get '/users', to: 'users#index'
   # ユーザーのマイページ
   get '/users/:id', to: 'users#show'
-  get '/users/schedule', to:'users#add_schedule'
-  patch '/users/update/:id', to:'users#update'
-  get '/users/schedule/index', to:'users#show_schedule'
+  get '/users/:id/schedule', to:'users#add_schedule', as: 'users_add_schedule'
+  patch '/users/:id/update', to:'users#update', as: 'users_update_shcedule'
+  get '/users/:id/schedule/index', to:'users#show_schedule', as: 'users_schedule'
 end
 
 # After signing in a user, confirming the account or updating the password,
