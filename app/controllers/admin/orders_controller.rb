@@ -1,6 +1,6 @@
 class Admin::OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:index, :show, :edit, :update, :destory]
+  before_action :authenticate_user!, only: [ :edit, :update, :destory]
 
   def index
     @orders = Order.all
@@ -48,6 +48,6 @@ class Admin::OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:first_name, :last_name, :day, :location,:phone_number, :comment)
+      params.require(:order).permit(:first_name, :last_name, :day, :location,:phone_number, :comment, :area_id)
     end
 end

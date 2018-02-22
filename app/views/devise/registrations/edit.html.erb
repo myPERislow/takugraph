@@ -34,6 +34,11 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label :area_id %>
+    <%= f.collection_select  :area_id, Area.all, :id, :prefecture, {prompt: "選択してください"} %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>

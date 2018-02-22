@@ -10,11 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180221010308) do
+ActiveRecord::Schema.define(version: 20180222084801) do
 
   create_table "albums", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.json "photographs"
     t.string "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "areas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "prefecture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,6 +34,7 @@ ActiveRecord::Schema.define(version: 20180221010308) do
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "area_id"
     t.index ["day"], name: "index_orders_on_day"
     t.index ["first_name"], name: "index_orders_on_first_name"
     t.index ["last_name"], name: "index_orders_on_last_name"
@@ -61,6 +68,7 @@ ActiveRecord::Schema.define(version: 20180221010308) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role", default: 3, null: false
+    t.integer "area_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

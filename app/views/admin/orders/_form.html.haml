@@ -16,8 +16,8 @@
       = f.label :phone_number
       = f.text_field :phone_number, :class => "form-control"
     .form-group
-      = f.label :area
-      = f.select :area
+      = f.label :area_id
+      = f.collection_select :area_id, Area.all, :id, :prefecture, {prompt: "選択してください"}, {class: "form-control"}
     .form-group
       = f.label :comment
       = f.text_field :comment, :class => "form-control"

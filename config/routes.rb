@@ -4,8 +4,12 @@ Rails.application.routes.draw do
 
   get 'home/flow', to: 'home#flow'
 
+  # :controllersオプションで使用するコントローラを指定しています。
+  # ちなみに'users/sessions'のusersはapp/controllers/usersディレクトリのことを表し、sessionsはsessions_controller.rbファイルの先頭を表しています。
+  # そのため、実際のディレクトリ構造とファイル名とがこの設定と一致していないとうまく動きません。
   devise_for :users, controllers: {
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
   }
 
   resources :albums

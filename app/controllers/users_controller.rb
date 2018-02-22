@@ -14,7 +14,6 @@ class UsersController < ApplicationController
     30.times do
       @user.schedules.build
     end
-    binding.pry
   end
 
   def update
