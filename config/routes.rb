@@ -8,8 +8,7 @@ Rails.application.routes.draw do
   # ちなみに'users/sessions'のusersはapp/controllers/usersディレクトリのことを表し、sessionsはsessions_controller.rbファイルの先頭を表しています。
   # そのため、実際のディレクトリ構造とファイル名とがこの設定と一致していないとうまく動きません。
   devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    registrations: 'users/registrations'
+    sessions: 'users/sessions'
   }
 
   resources :albums
