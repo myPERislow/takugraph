@@ -52,7 +52,20 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'dotenv-rails'
 
+# javascriptへのリンクを統括するため
 gem 'webpacker', github: 'rails/webpacker'
+
+# seedsデータを作るためのgem
+gem 'seed-fu'
+
+# パンくずリスト作るため
+gem 'gretel'
+
+# 出力結果を表として出力するgem
+gem 'hirb'
+
+# マルチバイト文字の表示を補正するgem
+gem 'hirb-unicode'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

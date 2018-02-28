@@ -14,7 +14,11 @@ Rails.application.routes.draw do
   resources :albums
 
   namespace :admin do
-    resources :orders
+    resources :orders do
+      collection do
+        post 'confirm'
+      end
+    end
   end
 
   # ユーザー一覧ページ

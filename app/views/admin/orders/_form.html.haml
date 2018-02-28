@@ -1,4 +1,4 @@
-= form_for @order,  :url => {:controller => :orders, :action => :create} do |f|
+= form_for @order, url: {:controller => :orders, :action => :confirm} do |f|
   .container
     .form-group
       = f.label :first_name
@@ -21,4 +21,4 @@
     .form-group
       = f.label :comment
       = f.text_field :comment, :class => "form-control"
-    = f.submit :class => "btn btn-primary"
+    = f.submit '申し込み確認画面へ', :class => "btn btn-primary"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180222084801) do
+ActiveRecord::Schema.define(version: 20180228061630) do
 
   create_table "albums", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.json "photographs"
@@ -28,13 +28,14 @@ ActiveRecord::Schema.define(version: 20180222084801) do
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "first_name"
     t.string "last_name"
-    t.datetime "day"
+    t.date "day"
     t.string "location"
     t.string "phone_number"
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "area_id"
+    t.integer "photographer_id"
     t.index ["day"], name: "index_orders_on_day"
     t.index ["first_name"], name: "index_orders_on_first_name"
     t.index ["last_name"], name: "index_orders_on_last_name"

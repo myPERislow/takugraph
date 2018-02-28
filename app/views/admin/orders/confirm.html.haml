@@ -1,0 +1,35 @@
+/ 確認ページを作成します。
+/ 登録や戻る際にPOSTでデータを送る為に`hidden_field`で情報を保持しています。
+/ また、戻る処理を実現する為に、name属性を使用してcreateアクション内で分岐を行います
+/ データ保持
+/ 戻る為のname
+
+= render 'layouts/header'
+.page-header
+  %h1 申し込み確認フォーム
+
+= form_for @order, url: {:controller => :orders, :action => :create} do |f|
+  .container
+    .form-group
+      = f.label :first_name
+      = f.hidden_field :first_name, :class => "form-control"
+    .form-group
+      = f.label :last_name
+      = f.hidden_field :last_name, :class => "form-control"
+    .form-group
+      = f.label :day
+      = f.hidden_field :day , :class => "form-control"
+    .form-group
+      = f.label :location
+      = f.hidden_field :location, :class => "form-control"
+    .form-group
+      = f.label :phone_number
+      = f.hidden_field :phone_number, :class => "form-control"
+    .form-group
+      = f.label :area_id
+      = f.hidden_field :area_id, :class => "form-control"
+    .form-group
+      = f.label :comment
+      = f.hidden_field :comment, :class => "form-control"
+    = f.submit '戻る', name: 'back', :class => "btn btn-primary"
+    = f.submit '申し込み', :class => "btn btn-primary"

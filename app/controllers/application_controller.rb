@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
   # Devise4において、:sign_upで:nameを許可する例
-  devise_parameter_sanitizer.permit(:sign_up, keys: [:role])
+  devise_parameter_sanitizer.permit(:sign_up, keys: [:role, :area_id])
   # Devise4において、:account_updateで:area_idを許可する例
   devise_parameter_sanitizer.permit(:account_update, keys: [:area_id])
   end

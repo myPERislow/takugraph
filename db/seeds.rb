@@ -5,7 +5,6 @@
 # bin/rails db:seedは何回でも実行できる。
 
 # config: utf-8
-
 # 北海道 1
 Area.create(prefecture: "北海道" )
 # 東北地方 6
