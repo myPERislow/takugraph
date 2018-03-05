@@ -1,0 +1,2 @@
+class AddtionalPlan < ApplicationRecord
+end

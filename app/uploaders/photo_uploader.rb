@@ -7,6 +7,11 @@ class PhotoUploader < CarrierWave::Uploader::Base
   storage :file
   # storage :fog
 
+  def extension_white_list
+    %w(jpg jpeg gif png)
+  end
+
+
   # 保存パス
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -42,10 +47,10 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # 横幅を500pxに制限して保存する。
 
   # showページ(大きな画像)
-  process resize_to_limit: [500, nil]
+  process resize_to_fit: [500, 350]
   # indexページ(サムネイル)
   version :thumb do
-    process resize_to_fit: [300, nil]
+    process resize_to_fit: [300, 200]
   end
 
   # 拡張子の変換

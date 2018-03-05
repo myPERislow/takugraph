@@ -1,6 +1,7 @@
-.container
-  .row
-    .page-header
-      %h1 新しいアルバム
-    = render 'form', {order: @order}
-    = link_to "戻る", albums_path
+render 'layouts/error'
+.signup-page
+  %h2.explanation-text 納品ページ
+  .formContainer
+    %h2 新しいアルバム
+    = render 'form', {order: @order,album: @album}
+    = link_to "戻る", admin_orders_path, class: 'btn btn-primary album-back'

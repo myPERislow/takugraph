@@ -6,8 +6,21 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    root_path
+    if current_user.member?
+      root_path
+    else
+      show_users_path(resource)
+    end
   end
+
+  # def after_update_path_for(resource)
+  #   if current_user.member?
+  #     root_path
+  #   else
+  #     show_users_path(resource)
+  #   end
+  # end
+
 
   # public => publicに設定されたメソッドは制限なしに呼び出せる
   # protected => protectedに設定されたメソッドは、そのメソッドを持つオブジェクトがselfであるコンテキスト(メソッド定義式やinstance_eval)でのみ呼び出せます。

@@ -5,10 +5,17 @@
         - @album.errors.full_messages.each do |message|
           %li= message
   注文番号：
-  = f.label order
-  = f.hidden_field :order_id , :value => order
+  - begin
+    = f.label order.id
+  - rescue => e
+    = f.label order
+  - begin
+    = f.hidden_field :order_id, :value => order.id
+  - rescue => h
+    = f.hidden_field :order_id , :value => order
 
   .field
-    = f.file_field :photographs, multiple: true
+    = f.file_field :photographs, multiple: true, class: 'input-nohin'
+    = f.hidden_field :photographs_cache
   .action
-    = f.submit '納品', class: 'btn btn-default'
+    = f.submit '納品', class: 'btn btn-primary'

@@ -67,6 +67,12 @@ gem 'hirb'
 # マルチバイト文字の表示を補正するgem
 gem 'hirb-unicode'
 
+#1. Be sure to restart your server when you modify this file.
+#2. ↓この行をコメントアウト
+#3. Rails.applicaion.config.session_store :cookie_store, key: '_redistest_session'
+gem 'redis'
+gem 'redis-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

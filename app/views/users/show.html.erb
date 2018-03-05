@@ -6,10 +6,15 @@
           <li class="nav-item">
           <%= link_to 'プロフィール編集', edit_user_registration_path ,class: 'nav-link' %>
           </li>
+          <li class="nav-item">
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link'%>
+          </li>
           <% unless current_user.member? %>
             <li class="nav-item">
               <%= link_to '依頼一覧', admin_orders_path , class: "nav-link"%>
             </li>
+          <% end %>
+          <% if current_user.photographer? %>
             <li class="nav-item">
               <%= link_to '予定入力', users_add_schedule_path(id: @user.id), class: "nav-link" %>
             </li>
@@ -20,6 +25,8 @@
     <div class="col-md-10">
       <% if current_user.member? %>
         <%= render 'userpage' %>
+      <% elsif current_user.photographer? %>
+        <%= render 'photographerpage' %>
       <% else %>
         <%= render 'adminpage' %>
       <% end %>

@@ -1,6 +1,6 @@
 class CreateAreas < ActiveRecord::Migration[5.1]
   def change
-    create_table :areas do |t|
+    create_table :areas  ,id: :integer do |t|
       t.string :prefecture
 
       t.timestamps

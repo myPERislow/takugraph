@@ -1,5 +1,6 @@
-<div class="container" >
-<h2>新規登録</h2>
+<%= render 'layouts/header' %>
+<div class="signup-page" >
+<h2 class="explanation-text">新規登録画面</h2>
 
 <!-- autocomplete
     この属性は、コントロールの値をブラウザーが自動的に保管して良いかを示します。
@@ -13,12 +14,12 @@
   Firefox は他のブラウザーと異なり autocomplete 属性で、ページを再読み込みしても <input> を 動的に無効化した状態や (該当する場合は) 動的に変更したチェック状態を維持するか を制御します。この維持機能は、デフォルトで有効です。autocomplete 属性の値に off を設定すると、この機能を無効化できます。またこの設定は、type 属性が通常 autocomplete を適用しない値である <input> 要素でも有効です。バグ 654072 をご覧ください。
 
   ほとんどの現行ブラウザー (Firefox 38+、Google Chrome 34+、IE 11+) では autocomplete 属性を設定しても、ブラウザーのパスワードマネージャーがユーザーにログイン情報 (ユーザー名やパスワード) を保存したいかを問い合わせる、またユーザーが同意した場合に次回以降ページを訪れた際にログイン情報を自動入力することは抑制できません。autocomplete 属性とログインフィールド をご覧ください。-->
+<div class="formContainer">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-<form>
   <div class="field form-group">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" , placeholder: "hoge@example.com"%>
   </div>
 
   <div class="field form-group">
@@ -26,12 +27,12 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", placeholder: "hogehoge7"%>
   </div>
 
   <div class="field form-group">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "hogehoge7" %>
   </div>
 
   <div class="field">
@@ -39,12 +40,12 @@
     <%= f.select :role ,{'administer' => 'admin','photographer' => 'photographer', 'member' => 'member'}, :include_blank => false, autofocus: true, class: 'form-control'%>
   </div>
 
-  <div class="actions">
+  <div class="action">
     <%= f.submit "新規登録" %>
     <%= render "devise/shared/links" %>
   </div>
-</form>
 <% end %>
+</div>
 </div>
 
 <!-- autofocus

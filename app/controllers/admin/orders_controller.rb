@@ -24,16 +24,21 @@ class Admin::OrdersController < ApplicationController
     render :new if @order.invalid? #<= バリデーションチェックNGなら戻す
   end
 
+  def back
+    @order = Order.new(order_params)
+
+    render :new
+  end
+
   def create
-    if params[:back]
-      render :new
-    elsif @order = Order.new(order_params)
+    @order = Order.new(order_params)
       #ActiveRecord::Base.transaction do
         # new: @order.areaでorderモデルに紐付いているareaを呼び出す
         # execute: photographersの配列を作成する
         # photographers = NeabyPhotographerService.new(@order.area).execute
 
         # 第一段階(計二段階中) - エリアによる絞り込み
+    if @order.present?
 
       @area = @order.area
       photographers = User.all.photographer.where(area_id: @area.id)
@@ -62,8 +67,13 @@ class Admin::OrdersController < ApplicationController
         @order.save
         redirect_to root_path
       end
-      @order.update(photographer_id: t.id)
-      redirect_to root_path
+      if t.nil?
+        @order.save
+        redirect_to root_path
+      else
+        @order.update(photographer_id: t.id)
+        redirect_to root_path
+      end
     else
       render :new
     end
@@ -95,6 +105,6 @@ class Admin::OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:first_name, :last_name, :day, :location, :phone_number, :comment, :area_id, :photographer_id)
+      params.require(:order).permit(:first_name, :last_name, :day, :location, :phone_number, :comment, :area_id, :photographer_id, :errors)
     end
 end

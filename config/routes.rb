@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   # ちなみに'users/sessions'のusersはapp/controllers/usersディレクトリのことを表し、sessionsはsessions_controller.rbファイルの先頭を表しています。
   # そのため、実際のディレクトリ構造とファイル名とがこの設定と一致していないとうまく動きません。
   devise_for :users, controllers: {
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
   }
 
   resources :albums
@@ -24,10 +25,12 @@ Rails.application.routes.draw do
   # ユーザー一覧ページ
   get '/users', to: 'users#index'
   # ユーザーのマイページ
-  get '/users/:id', to: 'users#show'
+  get '/users/:id', to: 'users#show', as: 'show_users'
   get '/users/:id/schedule', to:'users#add_schedule', as: 'users_add_schedule'
   patch '/users/:id/update', to:'users#update', as: 'users_update_shcedule'
   get '/users/:id/schedule/index', to:'users#show_schedule', as: 'users_schedule'
+  # 入力画面に戻った際のurlをusers/backではなく、users/newにするためにroutingを設定
+  post '/admin/orders/new', to:'admin/orders#back'
 end
 
 # After signing in a user, confirming the account or updating the password,

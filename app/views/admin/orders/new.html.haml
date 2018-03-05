@@ -1,4 +1,28 @@
 = render 'layouts/header'
+= render 'layouts/error'
 .page-header
   %h1 申し込みフォーム
-= render 'form'
+  = form_for @order, url: {:controller => :orders, :action => :confirm} do |f|
+    .container
+      .form-group
+        = f.label :first_name
+        = f.text_field :first_name, :class => "form-control", placeholder: "佐藤"
+      .form-group
+        = f.label :last_name
+        = f.text_field :last_name , :class => "form-control", placeholder: "匠"
+      .form-group
+        = f.label :day
+        = f.text_field :day , :class => "form-control", placeholder: "20180321"
+      .form-group
+        = f.label :location
+        = f.text_field :location, :class => "form-control", placeholder: "神奈川県"
+      .form-group
+        = f.label :phone_number
+        = f.text_field :phone_number, :class => "form-control", placeholder: "08088889999"
+      .form-group
+        = f.label :area_id
+        = f.collection_select :area_id, Area.all, :id, :prefecture, {prompt: "選択してください"}, {class: "form-control"}
+      .form-group
+        = f.label :comment
+        = f.text_area :comment, :class => "form-control", placeholder: "楽しみにしています!"
+      = f.submit '申し込み確認画面へ', :class => "btn btn-primary"

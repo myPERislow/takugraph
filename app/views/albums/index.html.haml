@@ -1,7 +1,7 @@
 = render 'layouts/header'
-.page-header
-  %h1 写真一覧
-%table
+%page-header.index_header
+  %h1.index_title 写真一覧
+%table.container
   - @albums.each do |album|
     %th
-      %td= link_to image_tag(album.photographs[0].thumb.url), album
+      %td= link_to image_tag(album.photographs[0].url(:thumb)), album, :class => "content"

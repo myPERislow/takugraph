@@ -13,23 +13,45 @@
     .form-group
       = f.label :first_name
       = f.hidden_field :first_name, :class => "form-control"
+      <br/>
+      = @order.first_name
     .form-group
       = f.label :last_name
       = f.hidden_field :last_name, :class => "form-control"
+      <br/>
+      = @order.last_name
     .form-group
       = f.label :day
       = f.hidden_field :day , :class => "form-control"
+      <br/>
+      = @order.day
     .form-group
       = f.label :location
       = f.hidden_field :location, :class => "form-control"
+      <br/>
+      = @order.location
     .form-group
       = f.label :phone_number
       = f.hidden_field :phone_number, :class => "form-control"
+      <br/>
+      = @order.phone_number
     .form-group
       = f.label :area_id
       = f.hidden_field :area_id, :class => "form-control"
+      <br/>
+      = @order.area_id
     .form-group
       = f.label :comment
       = f.hidden_field :comment, :class => "form-control"
-    = f.submit '戻る', name: 'back', :class => "btn btn-primary"
+      <br/>
+      = @order.comment
     = f.submit '申し込み', :class => "btn btn-primary"
+= form_for @order, url: {:controller => :orders, :action => :new} do |f|
+  = f.hidden_field :first_name, :class => "form-control"
+  = f.hidden_field :last_name, :class => "form-control"
+  = f.hidden_field :day , :class => "form-control"
+  = f.hidden_field :location, :class => "form-control"
+  = f.hidden_field :phone_number, :class => "form-control"
+  = f.hidden_field :area_id, :class => "form-control"
+  = f.hidden_field :comment, :class => "form-control"
+  = f.submit '入力画面に戻る',  :class => "btn btn-primary btn-back"
