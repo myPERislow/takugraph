@@ -45,6 +45,19 @@
       = f.hidden_field :comment, :class => "form-control"
       <br/>
       = @order.comment
+    .form-group
+      = f.fields_for :addtional_plans do |addtional_plan|
+        = addtional_plan.label 'イラストオプション'
+        <br>
+        = addtional_plan.hidden_field :illust, :class => "form-control"
+        - if @order.addtional_plans[0].illust
+          <p>追加する</p>
+        - else
+          <p>追加しない</p>
+        = addtional_plan.label '写真追加オプション'
+        <br>
+        = addtional_plan.hidden_field :photo_number, :class => "form-control"
+        = "#{@order.addtional_plans[0].photo_number}枚の写真を追加する"
     = f.submit '申し込み', :class => "btn btn-primary"
 = form_for @order, url: {:controller => :orders, :action => :new} do |f|
   = f.hidden_field :first_name, :class => "form-control"
@@ -54,4 +67,7 @@
   = f.hidden_field :phone_number, :class => "form-control"
   = f.hidden_field :area_id, :class => "form-control"
   = f.hidden_field :comment, :class => "form-control"
+  = f.fields_for :addtional_plans do |addtional_plan|
+    = addtional_plan.hidden_field :illust, :class => "form-control"
+    = addtional_plan.hidden_field :photo_number, :class => "form-control"
   = f.submit '入力画面に戻る',  :class => "btn btn-primary btn-back"

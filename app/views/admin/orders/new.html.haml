@@ -25,4 +25,13 @@
       .form-group
         = f.label :comment
         = f.text_area :comment, :class => "form-control", placeholder: "楽しみにしています!"
+      .form-group
+        = f.fields_for :addtional_plans do |addtional_plan|
+          = addtional_plan.label 'イラストオプション'
+          <br>
+          = addtional_plan.select :illust, [["イラストオプションを選択", false],["イラストオプションを追加する", true],["イラストオプションを追加しない", false]], :class => "form-control"
+          <br>
+          = addtional_plan.label '写真追加オプション'
+          <br>
+          = addtional_plan.select :photo_number, [["写真枚数を追加する場合は選択してください", 0],["1枚",1],["2枚", 2],["3枚",3],["4枚", 4], ["5枚", 5]], :class => "form-control"
       = f.submit '申し込み確認画面へ', :class => "btn btn-primary"

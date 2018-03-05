@@ -13,6 +13,7 @@ class Admin::OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @order.addtional_plans.build
   end
 
   # Viewで該当するデータを表示等する為にインスタンス変数で取得します。
@@ -105,6 +106,17 @@ class Admin::OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:first_name, :last_name, :day, :location, :phone_number, :comment, :area_id, :photographer_id, :errors)
+      params.require(:order).permit(
+        :first_name,
+        :last_name,
+        :day,
+        :location,
+        :phone_number,
+        :comment,
+        :area_id,
+        :photographer_id,
+        :errors,
+        addtional_plans_attributes: [:photo_number, :illust]
+      )
     end
 end

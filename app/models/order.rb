@@ -14,4 +14,9 @@ class Order < ApplicationRecord
   has_one :album, dependent: :destroy
   belongs_to :area, optional: true
 
+  has_many :addtional_plans
+  accepts_nested_attributes_for :addtional_plans
+
+
+
 end
