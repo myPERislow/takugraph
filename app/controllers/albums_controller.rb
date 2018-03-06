@@ -25,6 +25,7 @@ class AlbumsController < ApplicationController
     @album = Album.new(album_params)
     @order = @album.order
     if @album.save
+      AlbumMailer.create_album.deliver_later
       redirect_to album_path(@album), notice: 'Album was successfully created.'
     else
       render :new , order: @order, album: @album
@@ -33,6 +34,7 @@ class AlbumsController < ApplicationController
 
   def update
     if @album.update(album_params)
+      AlbumMailer.update_album.deliver_later
       redirect_to admin_orders_path, notice: 'Album was successfully updated.'
     else
       render :edit

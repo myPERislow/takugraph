@@ -66,13 +66,16 @@ class Admin::OrdersController < ApplicationController
         t = l.sample
       else
         @order.save
+        OrderMailer.post_order().deliver_later
         redirect_to root_path
       end
       if t.nil?
         @order.save
+        OrderMailer.post_order().deliver_later
         redirect_to root_path
       else
         @order.update(photographer_id: t.id)
+        OrderMailer.photographer_post_order().deliver_later
         redirect_to root_path
       end
     else
@@ -86,6 +89,7 @@ class Admin::OrdersController < ApplicationController
 
   def update
     if @order.update(order_params)
+      OrderMailer.update_order().deliver_later
       redirect_to admin_order_path, notice: 'Order was successfully updated.'
     else
       render :edit
