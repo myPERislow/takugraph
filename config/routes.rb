@@ -19,16 +19,22 @@ Rails.application.routes.draw do
       collection do
         post 'confirm'
       end
+      member do
+        get 'users_order_member'
+      end
     end
   end
 
   # ユーザー一覧ページ
-  get '/users', to: 'users#index'
+  get '/users', to: 'users#index', as: 'users'
+  get '/users/:id/edit', to: 'users#edit', as: 'edit_user'
+  patch '/users/:id', to: 'users#update_user', as: 'update_user'
   # ユーザーのマイページ
   get '/users/:id', to: 'users#show', as: 'show_users'
   get '/users/:id/schedule', to:'users#add_schedule', as: 'users_add_schedule'
   patch '/users/:id/update', to:'users#update', as: 'users_update_shcedule'
   get '/users/:id/schedule/index', to:'users#show_schedule', as: 'users_schedule'
+  delete '/users/:id', to: 'users#destroy', as: 'users_destroy'
   # 入力画面に戻った際のurlをusers/backではなく、users/newにするためにroutingを設定
   post '/admin/orders/new', to:'admin/orders#back'
 end
