@@ -12,7 +12,11 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :albums
+  resources :albums do
+    member do
+      get 'show_for_order'
+    end
+  end
 
   namespace :admin do
     resources :orders do

@@ -29,6 +29,9 @@
       %tr
         %th created_at
         %td= @order.created_at
+    %table.container
+      %th
+        %td= link_to image_tag(@order.album.photographs[0].url(:thumb)), show_for_order_album_path
     = link_to '戻る', admin_orders_path,  class: 'btn btn-primary admin-botton'
     = link_to '編集', edit_admin_order_path(@order), class: 'btn btn-primary admin-botton'
     = link_to '削除', admin_order_path(@order), :method => :delete, :confirm => "本当に削除していいですか", class: 'btn btn-primary admin-botton'
