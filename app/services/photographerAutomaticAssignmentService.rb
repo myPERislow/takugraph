@@ -3,13 +3,12 @@ class PhotographerAutomacitAssignmentService
   def initialize(order)
     @order = order
     @area = @order.area
-    photographers = User.all.photographer.where(area_id: @area.id)
+    @photographers = User.all.photographer.where(area_id: @area.id)
 
       # raise InvalidPhotographerAssignment unless PhotographerAutomacitAssignmentService.new(photographers, @order).execute
 
       # 第二段階(計二段階中) - dateによる絞り込み
 
-    @photographers = photographers
     @date = @order.day
 　end
 
