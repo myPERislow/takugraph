@@ -45,7 +45,28 @@ class Admin::OrdersController < ApplicationController
 
         # 第一段階(計二段階中) - エリアによる絞り込み
     if @order.present?
-      PhotographerAutomacitAssignmentService.new(@order).execute
+      PhotographerAutomaticAssignmentService.new(@order).execute
+      if @l
+        t = @l.sample
+      else
+        @order.save
+        OrderMailer.post_order().deliver_later
+        flash[:notice] = "申し込みが完了しました"
+        redirect_to(root_path) and return
+      end
+
+      if t.nil?
+        @order.save
+        OrderMailer.post_order().deliver_later
+        flash[:notice] = "申し込みが完了しました"
+        redirect_to(root_path) and return
+      else
+        @order.update(photographer_id: t.id)
+        OrderMailer.photographer_post_order().deliver_later
+        flash[:notice] = "申し込みが完了しました"
+        redirect_to(root_path) and return
+      end
+
     else
       render :new
     end
