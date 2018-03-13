@@ -29,6 +29,12 @@
       %tr
         %th created_at
         %td= @order.created_at
+      %tr
+        %th user_id
+        - unless @order.user_id.nil?
+          %td= @order.user_id
+        - else
+          %td
     %table.container
       %th
         %td= link_to image_tag(@order.album.photographs[0].url(:thumb)), show_for_order_album_path
