@@ -4,19 +4,23 @@
       .sidebar-sticky
         %ul.nav.flex-column
           %li.nav-item
+            = link_to 'ホームに戻る', root_path ,class: 'nav-link'
+          %li.nav-item
             = link_to 'プロフィール編集', edit_user_registration_path ,class: 'nav-link'
           %li.nav-item
             = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link'
-          - unless current_user.member?
-            %li.nav-item
-              = link_to '依頼一覧', admin_orders_path , class: "nav-link"
-          - if current_user.photographer?
-            %li.nav-item
-              = link_to '予定入力', users_add_schedule_path(id: current_user.id), class: "nav-link"
           - if current_user.member?
             %li.nav-item
               = link_to '申し込み一覧', user_admin_order_path , class: "nav-link"
-
+          - unless current_user.member?
+            %li.nav-item
+              = link_to '依頼一覧', admin_orders_path , class: 'nav-link'
+          - if current_user.photographer?
+            %li.nav-item
+              = link_to '予定入力', users_add_schedule_path(id: current_user.id), class: 'nav-link'
+          - if current_user.admin?
+            %li.nav-item
+              = link_to 'ユーザー一覧', users_path ,class: 'nav-link'
     .col-md-10
       .page-header
       %h1 申込一覧

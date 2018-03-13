@@ -1,6 +1,7 @@
 class Admin::OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [ :edit, :update, :destory]
+  before_action :member_not_index, only: [:index]
 
   class InvalidPhotographerAssignment < StandardError; end
 
@@ -45,27 +46,38 @@ class Admin::OrdersController < ApplicationController
 
         # 第一段階(計二段階中) - エリアによる絞り込み
     if @order.present?
-      PhotographerAutomaticAssignmentService.new(@order).execute
-      if @l
-        t = @l.sample
-      else
-        @order.save
-        OrderMailer.post_order().deliver_later
-        flash[:notice] = "申し込みが完了しました"
-        redirect_to(root_path) and return
-      end
+      @l = []
+      PhotographerAutomaticAssignmentService.new(@order,@l).execute
 
-      if t.nil?
-        @order.save
-        OrderMailer.post_order().deliver_later
-        flash[:notice] = "申し込みが完了しました"
-        redirect_to(root_path) and return
-      else
-        @order.update(photographer_id: t.id)
-        OrderMailer.photographer_post_order().deliver_later
-        flash[:notice] = "申し込みが完了しました"
-        redirect_to(root_path) and return
+    if @l
+      t = @l.sample
+    else
+      if current_user.present?
+        @order.user_id = current_user.id
       end
+      @order.save
+      OrderMailer.post_order().deliver_later
+      flash[:notice] = "申し込みが完了しました"
+      redirect_to(root_path) and return
+    end
+
+    if t.nil?
+      if current_user.present?
+        @order.user_id = current_user.id
+      end
+      @order.save
+      OrderMailer.post_order().deliver_later
+      flash[:notice] = "申し込みが完了しました"
+      redirect_to(root_path) and return
+    else
+      if current_user.present?
+        @order.user_id = current_user.id
+      end
+      @order.update(photographer_id: t.user_id)
+      OrderMailer.photographer_post_order().deliver_later
+      flash[:notice] = "申し込みが完了しました"
+      redirect_to(root_path) and return
+    end
 
     else
       render :new
@@ -110,7 +122,12 @@ class Admin::OrdersController < ApplicationController
         :area_id,
         :photographer_id,
         :errors,
+        :user_id,
         addtional_plans_attributes: [:photo_number, :illust]
       )
+    end
+
+    def member_not_index
+      redirect_to user_admin_order_path(current_user)
     end
 end

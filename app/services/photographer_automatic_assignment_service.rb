@@ -1,6 +1,7 @@
 class PhotographerAutomaticAssignmentService
 
-  def initialize(order)
+  def initialize(order,l)
+    @l = l
     @order = order
     @area = @order.area
     @photographers = User.all.photographer.where(area_id: @area.id)
@@ -16,7 +17,6 @@ class PhotographerAutomaticAssignmentService
     # シンプルに回す
     photographer_schedules = @photographers.map { |e| e.schedules  }
 
-    @l = []
 
 
     photographer_schedules.each do |photographer_schedule|
@@ -30,5 +30,7 @@ class PhotographerAutomaticAssignmentService
       end
 
     end
+
+    
   end
 end

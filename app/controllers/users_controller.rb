@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def update_user
     @user = User.find(params[:id])
     @user.update(user_params)
-    redirect_to users_path
+    redirect_to users_path, notice: 'User was updated!'
   end
 
   def destroy
