@@ -38,7 +38,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    redirect_to users_schedule_path(id: params[:id])
+    flash[:notice] = "スケジュールを更新しました。"
+    redirect_to show_users_path(id: params[:id])
   end
 
   def show_schedule
