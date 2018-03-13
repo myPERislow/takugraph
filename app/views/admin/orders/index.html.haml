@@ -41,6 +41,7 @@
             %td= order.comment
             %td= order.created_at
             - if order.album.nil?
+              - if current_user.photographer?
               %td= link_to '納品', new_album_path(order: order) , :class => "btn btn-primary"
             %td= link_to '詳細', admin_order_path(order) , :class => "btn btn-primary"
             %td= link_to '編集', edit_admin_order_path(order) , :class => "btn btn-primary"
