@@ -20,7 +20,7 @@ Rails.application.routes.draw do
         post 'confirm'
       end
       member do
-        get 'users_order_member'
+        get 'user'
       end
     end
   end

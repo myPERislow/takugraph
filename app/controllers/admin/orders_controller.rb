@@ -8,7 +8,7 @@ class Admin::OrdersController < ApplicationController
     @orders = Order.all
   end
 
-  def users_order_member
+  def user
     @orders = Order.where(user_id: params[:id])
     render 'order_user'
   end

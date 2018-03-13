@@ -29,7 +29,7 @@
           <% end %>
           <% if current_user.member? %>
             <li class="nav-item">
-              <%= link_to '申し込み一覧', users_order_member_admin_order_path(id: @user.id), class: "nav-link" %>
+              <%= link_to '申し込み一覧', user_admin_order_path(id: @user.id), class: "nav-link" %>
             </li>
           <% end %>
         </ul>
