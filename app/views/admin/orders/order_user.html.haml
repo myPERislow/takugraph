@@ -1,0 +1,47 @@
+.container-fluid
+  .row
+    %nav.col-md-2.d-none.d-md-block.bg-light.sidebar
+      .sidebar-sticky
+        %ul.nav.flex-column
+          %li.nav-item
+            = link_to 'プロフィール編集', edit_user_registration_path ,class: 'nav-link'
+          %li.nav-item
+            = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link'
+          - unless current_user.member?
+            %li.nav-item
+              = link_to '依頼一覧', admin_orders_path , class: "nav-link"
+          - if current_user.photographer?
+            %li.nav-item
+              = link_to '予定入力', users_add_schedule_path(id: current_user.id), class: "nav-link"
+          - if current_user.member?
+            %li.nav-item
+              = link_to '申し込み一覧', user_admin_order_path , class: "nav-link"
+
+    .col-md-10
+      .page-header
+      %h1 申込一覧
+      %table{:border => "1"}
+        %tr
+          %th id
+          %th first_name
+          %th last_name
+          %th day
+          %th location
+          %th phone_number
+          %th area
+          %th photographer_id
+          %th comment
+          %th created_at
+        - @orders.each do |order|
+          %tr
+            %td= order.id
+            %td= order.first_name
+            %td= order.last_name
+            %td= order.day
+            %td= order.location
+            %td= order.phone_number
+            %td= order.area.prefecture
+            %td= order.photographer_id
+            %td= order.comment
+            %td= order.created_at
+            %td= link_to '詳細', admin_order_path(order) , :class => "btn btn-primary"

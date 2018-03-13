@@ -13,9 +13,16 @@
     = f.hidden_field :order_id, :value => order.id
   - rescue => h
     = f.hidden_field :order_id , :value => order
+  - require = 10
+  - addtional_plan = AddtionalPlan.where(order_id: order.to_i).first
+  - require += addtional_plan.photo_number
+  %br
+  最低納品枚数: #{require}枚
 
-  .field
-    = f.file_field :photographs, multiple: true, class: 'input-nohin'
-    = f.hidden_field :photographs_cache
+  #drop_zone.upload-drop_zone
+    #fallback
+      = f.label '納品画像を選択'
+      = f.file_field :photographs, multiple: true, class: 'input-nohin', id: 'targetfile'
+      = f.hidden_field :photographs_cache
   .action
     = f.submit '納品', class: 'btn btn-primary'

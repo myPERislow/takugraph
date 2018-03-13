@@ -6,11 +6,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if current_user.member?
-      root_path
-    else
-      show_users_path(resource)
-    end
+    show_users_path(resource)
   end
 
   # def after_update_path_for(resource)

@@ -25,6 +25,8 @@
 
 vendor/
 
+/public/uploads/
+
 markdowns/
 
 .gitignore
