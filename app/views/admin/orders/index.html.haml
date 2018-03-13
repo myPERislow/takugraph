@@ -12,7 +12,7 @@
               = link_to '依頼一覧', admin_orders_path , class: "nav-link"
           - if current_user.photographer?
             %li.nav-item
-              = link_to '予定入力', users_add_schedule_path(id: @user.id), class: "nav-link"
+              = link_to '予定入力', users_add_schedule_path(id: current_user.id), class: "nav-link"
     .col-md-10
       .page-header
       %h1 依頼一覧
