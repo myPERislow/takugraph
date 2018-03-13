@@ -82,9 +82,6 @@ gem 'sinatra', require: false # ダッシュボードを利用するため
 # railからslackにメッセージを送るslack-notifier
 gem "slack-notifier"
 
-# ドラック&ドロップによるファイルアップロード機能を提供するJavaScriptライブラリ
-gem "dropzonejs-rails"
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -4,6 +4,7 @@
       %ul
         - @album.errors.full_messages.each do |message|
           %li= message
+
   注文番号：
   - begin
     = f.label order.id
@@ -19,10 +20,13 @@
   %br
   最低納品枚数: #{require}枚
 
-  #drop_zone.upload-drop_zone
-    #fallback
-      = f.label '納品画像を選択'
-      = f.file_field :photographs, multiple: true, class: 'input-nohin', id: 'targetfile'
-      = f.hidden_field :photographs_cache
+  #example
+    %sample_photographs_uploader
+
+  .field
+  　　　　= f.label '納品画像を選択'
+    = f.file_field :photographs, multiple: true
   .action
     = f.submit '納品', class: 'btn btn-primary'
+
+%script{:src => "./sample_photographs_uploader.js"}

@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/rails/webpacker.git
-  revision: 0e58183d806c63ea76cd5e7f04549265044c129b
+  revision: 1f2d0f8f6062da844739664d809558ce9f34e5bc
   specs:
-    webpacker (3.2.2)
+    webpacker (3.3.0)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
@@ -105,7 +105,7 @@ GEM
       rails (> 3.1)
     erb2haml (0.1.5)
       html2haml
-    erubi (1.7.0)
+    erubi (1.7.1)
     erubis (2.7.0)
     execjs (2.7.0)
     factory_bot (4.8.2)
@@ -136,7 +136,7 @@ GEM
       haml (>= 4.0, < 6)
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
-    i18n (0.9.4)
+    i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -151,7 +151,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.1.1)
+    loofah (2.2.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.0)
@@ -187,7 +187,7 @@ GEM
       rack
     rack-proxy (0.6.3)
       rack
-    rack-test (0.8.2)
+    rack-test (0.8.3)
       rack (>= 1.0, < 3)
     rails (5.1.4)
       actioncable (= 5.1.4)
@@ -343,6 +343,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   mini_magick
   mysql2 (>= 0.3.18, < 0.5)
+  popper_js
   pry-byebug
   pry-rails
   puma (~> 3.7)
