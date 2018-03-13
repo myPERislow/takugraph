@@ -13,7 +13,6 @@
 
 //= require jquery3
 //= require bootstrap-sprockets
-//= require popper
 // require toastr
 
 //= require jquery_ujs
