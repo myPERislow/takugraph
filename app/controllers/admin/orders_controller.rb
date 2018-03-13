@@ -8,6 +8,11 @@ class Admin::OrdersController < ApplicationController
     @orders = Order.all
   end
 
+  def user
+    @orders = Order.where(user_id: params[:id])
+    render 'order_user'
+  end
+
   def show
   end
 
@@ -42,13 +47,12 @@ class Admin::OrdersController < ApplicationController
     if @order.present?
 
       @area = @order.area
-      photographers = User.all.photographer.where(area_id: @area.id)
 
         # raise InvalidPhotographerAssignment unless PhotographerAutomacitAssignmentService.new(photographers, @order).execute
 
         # 第二段階(計二段階中) - dateによる絞り込み
 
-      @photographers = photographers
+      @photographers = User.all.photographer.where(area_id: @area.id)
       @date = @order.day
 
         # シンプルに回す
@@ -65,16 +69,19 @@ class Admin::OrdersController < ApplicationController
       if l
         t = l.sample
       else
-        @order.save
+        @order.save!
+        flash[:notice] = "申し込みが完了しました!"
         OrderMailer.post_order().deliver_later
         redirect_to root_path
       end
       if t.nil?
-        @order.save
+        @order.save!
+        flash[:notice] = "申し込みが完了しました!"
         OrderMailer.post_order().deliver_later
         redirect_to root_path
       else
         @order.update(photographer_id: t.id)
+        flash[:notice] = "申し込み内容が変更されました!"
         OrderMailer.photographer_post_order().deliver_later
         redirect_to root_path
       end
