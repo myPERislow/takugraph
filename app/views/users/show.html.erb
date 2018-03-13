@@ -4,6 +4,9 @@
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
+          <%= link_to 'ホームに戻る', root_path ,class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
           <%= link_to 'プロフィール編集', edit_user_registration_path ,class: 'nav-link' %>
           </li>
           <li class="nav-item">
@@ -17,6 +20,16 @@
           <% if current_user.photographer? %>
             <li class="nav-item">
               <%= link_to '予定入力', users_add_schedule_path(id: @user.id), class: "nav-link" %>
+            </li>
+          <% end %>
+          <% if current_user.admin? %>
+            <li class="nav-item">
+              <%= link_to 'ユーザー一覧', users_path ,class: 'nav-link' %>
+            </li>
+          <% end %>
+          <% if current_user.member? %>
+            <li class="nav-item">
+              <%= link_to '申し込み一覧', user_admin_order_path(id: @user.id), class: "nav-link" %>
             </li>
           <% end %>
         </ul>

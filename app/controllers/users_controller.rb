@@ -5,6 +5,25 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update_user
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to users_path
+  end
+
+  def destroy
+    # ①削除対象を見つける
+    @user = User.find(params[:id])
+    # ②削除
+    @user.destroy
+    # ③削除した後、戻りたい場所を指定
+    redirect_to users_path, notice: 'User was successfully destroyed'
+  end
+
   def show
     @user = User.find(params[:id])
   end
@@ -32,6 +51,7 @@ class UsersController < ApplicationController
         :email,
         :encrypted_password,
         :role,
+        :order_id,
         schedules_attributes: [:target_day, :priority]
       )
     end
