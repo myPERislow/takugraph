@@ -4,6 +4,7 @@
       %ul
         - @album.errors.full_messages.each do |message|
           %li= message
+
   注文番号：
   - begin
     = f.label order.id
@@ -14,8 +15,12 @@
   - rescue => h
     = f.hidden_field :order_id , :value => order
 
+  #example
+    %sample_photographs_uploader
+
   .field
-    = f.file_field :photographs, multiple: true, class: 'input-nohin'
-    = f.hidden_field :photographs_cache
+    = f.file_field :photographs, multiple: true
   .action
     = f.submit '納品', class: 'btn btn-primary'
+
+%script{:src => "./sample_photographs_uploader.js"}

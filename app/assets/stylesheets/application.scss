@@ -1,6 +1,7 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 
+@import "dropzone/dropzone";
 @import "albums.scss";
 @import "home.scss";
 @import "users.scss";

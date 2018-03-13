@@ -75,6 +75,13 @@ gem 'redis-rails'
 
 # railからslackにメッセージを送るslack-notifier
 gem "slack-notifier"
+
+# DropzoneJS is an open source library that provides drag'n'drop file uploads with image previews.
+# For Rails you can use this gem dropzonejs-rails.
+gem 'dropzonejs-rails'
+
+gem 'popper_js'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
