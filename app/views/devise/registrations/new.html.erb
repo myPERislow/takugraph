@@ -35,11 +35,6 @@
     <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "hogehoge7" %>
   </div>
 
-  <div class="field">
-    <%= f.label :role %><br />
-    <%= f.select :role ,{'administer' => 'admin','photographer' => 'photographer', 'member' => 'member'}, :include_blank => false, autofocus: true, class: 'form-control'%>
-  </div>
-
   <div class="action">
     <%= f.submit "新規登録" %>
     <%= render "devise/shared/links" %>

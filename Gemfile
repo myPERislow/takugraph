@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'https://rubygems.org' 
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -73,6 +73,12 @@ gem 'hirb-unicode'
 gem 'redis'
 gem 'redis-rails'
 
+# Sidekiqをインストール
+# Sidekiqは、resqueやdelayed_jobなどのような非同期処理を行いたい時に使うライブラリです
+# 複数のジョブを同時に実行することにより、メモリを節約する事が可能です
+gem 'sidekiq'
+gem 'sinatra', require: false # ダッシュボードを利用するため
+
 # railからslackにメッセージを送るslack-notifier
 gem "slack-notifier"
 
@@ -98,8 +104,10 @@ group :development do
 end
 
 group :test do
+  # Capybara本体
+  gem 'capybara'
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'database_cleaner'
 end
 

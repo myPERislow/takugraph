@@ -40,8 +40,9 @@
             %td= order.photographer_id
             %td= order.comment
             %td= order.created_at
-            - if order.album.nil?
+            - if order.album.nil? && current_user.photographer? && current_user.id == order.photographer_id
               %td= link_to '納品', new_album_path(order: order) , :class => "btn btn-primary"
             %td= link_to '詳細', admin_order_path(order) , :class => "btn btn-primary"
-            %td= link_to '編集', edit_admin_order_path(order) , :class => "btn btn-primary"
-            %td= link_to '削除', admin_order_path(order), :method => :delete, :confirm => "本当に削除していいですか?" , :class => "btn btn-primary"
+            - if current_user.admin?
+              %td= link_to '編集', edit_admin_order_path(order) , :class => "btn btn-primary"
+              %td= link_to '削除', admin_order_path(order), :method => :delete, :confirm => "本当に削除していいですか?" , :class => "btn btn-primary"

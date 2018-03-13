@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: [:show, :edit, :update, :destroy]
+  before_action :set_album_for_order, only: [:show_for_order]
   # GET /album
   def index
     @albums = Album.all
@@ -7,6 +8,9 @@ class AlbumsController < ApplicationController
 
   # GET /albums/1
   def show
+  end
+
+  def show_for_order
   end
 
   # GET /album/new
@@ -50,6 +54,10 @@ class AlbumsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_album
       @album = Album.find(params[:id])
+    end
+
+    def set_album_for_order
+      @album = Album.find_by(order_id: params[:id])
     end
 
     def album_params
