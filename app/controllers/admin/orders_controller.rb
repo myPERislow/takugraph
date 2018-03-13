@@ -8,6 +8,11 @@ class Admin::OrdersController < ApplicationController
     @orders = Order.all
   end
 
+  def user
+    @orders = Order.where(user_id: params[:id])
+    render 'order_user'
+  end
+
   def show
   end
 
@@ -40,9 +45,7 @@ class Admin::OrdersController < ApplicationController
 
         # 第一段階(計二段階中) - エリアによる絞り込み
     if @order.present?
-
       PhotographerAutomacitAssignmentService.new(@order).execute
-
     else
       render :new
     end
