@@ -28,6 +28,8 @@ module Takugraph
     # Don't generate system test files.
     config.generators.system_tests = nil
 
+    config.i18n.default_locale = :ja
+
     # 表示時のタイムゾーンをJSTに設定
     config.time_zone = 'Tokyo'
     # DB保存時のタイムゾーンをJSTに設定
