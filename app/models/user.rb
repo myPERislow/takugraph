@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   #  :lockable, :timeoutable and :omniauthable
-  validates :email, presence: true
+  validate :add_error_order
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
@@ -22,4 +22,13 @@ class User < ApplicationRecord
 
   # accepts_nested_attributes_forは、親子関係のある関連モデル(Project has_many :tasks や Enquate has_many :questionsなど)で、親から子を作成したり保存したりする時に使える。。
   accepts_nested_attributes_for :schedules
+
+
+  private
+
+  def add_error_order
+    if email.blank?
+      errors[:base] << "emailは必ず入力してください"
+    end
+  end
 end
