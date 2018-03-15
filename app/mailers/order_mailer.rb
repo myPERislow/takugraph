@@ -1,9 +1,9 @@
 class OrderMailer < ApplicationMailer
   default from:'ラブグラフ事務局<tainaisaibou@gmail.com>'
 
-  def post_order()
+  def post_order(order)
     mail(
-      to: 'facebook.eikogakuen@gmail.com',
+      to: order.email,
       subject: '申し込みを完了しました'
     )
   rescue => e
@@ -12,9 +12,9 @@ class OrderMailer < ApplicationMailer
   end
 
 
-  def photographer_post_order()
+  def photographer_post_order(order)
     mail(
-      to: 'facebook.eikogakuen@gmail.com',
+      to: order.email,
       subject: 'カメラマンが自動アサインされ申し込みが完了しました'
     )
   rescue => e
@@ -23,9 +23,9 @@ class OrderMailer < ApplicationMailer
   end
 
 
-  def update_order()
+  def update_order(order)
     mail(
-      to: 'facebook.eikogakuen@gmail.com',
+      to: order.email,
       subject: '申し込み内容が変更されました'
     )
   rescue => e

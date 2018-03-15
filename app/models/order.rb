@@ -1,5 +1,4 @@
 class Order < ApplicationRecord
-
   validate :add_error_order
 
   # Railsの慣例では、相手のモデル上の外部キーを保持しているカラム名については、そのモデル名にサフィックス_idを追加した関連付け名が使用されることを前提としている。
@@ -33,6 +32,10 @@ class Order < ApplicationRecord
 
     if phone_number.blank?
       errors[:base] << "電話番号は必ず入力してください"
+    end
+    
+    if email.blank?
+      errors[:base] << "メールアドレスは必ず入力してください"
     end
   end
 end

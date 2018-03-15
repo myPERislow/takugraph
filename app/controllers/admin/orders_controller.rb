@@ -56,7 +56,7 @@ class Admin::OrdersController < ApplicationController
         @order.user_id = current_user.id
       end
       @order.save
-      OrderMailer.post_order().deliver_later
+      OrderMailer.post_order(@order).deliver_later
       flash[:notice] = "申し込みが完了しました"
       redirect_to(root_path) and return
     end
@@ -66,7 +66,7 @@ class Admin::OrdersController < ApplicationController
         @order.user_id = current_user.id
       end
       @order.save
-      OrderMailer.post_order().deliver_later
+      OrderMailer.post_order(@order).deliver_later
       flash[:notice] = "申し込みが完了しました"
       redirect_to(root_path) and return
     else
@@ -74,7 +74,7 @@ class Admin::OrdersController < ApplicationController
         @order.user_id = current_user.id
       end
       @order.update(photographer_id: t.user_id)
-      OrderMailer.photographer_post_order().deliver_later
+      OrderMailer.photographer_post_order(@order).deliver_later
       flash[:notice] = "申し込みが完了しました"
       redirect_to(root_path) and return
     end
@@ -91,7 +91,7 @@ class Admin::OrdersController < ApplicationController
 
   def update
     if @order.update(order_params)
-      OrderMailer.update_order().deliver_later
+      OrderMailer.update_order(@order).deliver_later
       redirect_to admin_order_path, notice: 'Order was successfully updated.'
     else
       render :edit
@@ -123,6 +123,7 @@ class Admin::OrdersController < ApplicationController
         :photographer_id,
         :errors,
         :user_id,
+        :email,
         addtional_plans_attributes: [:photo_number, :illust]
       )
     end
