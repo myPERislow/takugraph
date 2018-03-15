@@ -128,6 +128,8 @@ class Admin::OrdersController < ApplicationController
     end
 
     def member_not_index
-      redirect_to user_admin_order_path(current_user)
+      if current_user.member?
+        redirect_to user_admin_order_path(current_user)
+      end
     end
 end
