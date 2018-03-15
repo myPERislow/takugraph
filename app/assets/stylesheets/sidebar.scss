@@ -1,0 +1,16 @@
+div#global_btn {
+    width: 400px;
+    padding-bottom: 30px;
+    float: left;
+}
+.sidebar {
+  background-color: gray;
+}
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+.sidebar-2 {
+  float: right;
+}
