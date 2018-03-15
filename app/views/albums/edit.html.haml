@@ -1,0 +1,8 @@
+
+.signup-page
+  %h2.explanation-text 納品編集ページ
+  .formContainer
+    %h2 再納品
+    = render 'form', {order: @order,album: @album}
+    = link_to "詳細", album_path(@album), class: 'btn btn-primary album-back'
+    = link_to "戻る", admin_orders_path, class: 'btn btn-primary album-back'

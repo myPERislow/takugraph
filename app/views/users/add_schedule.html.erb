@@ -1,0 +1,34 @@
+<!-- value：コントロールの初期値です。この属性はtype属性の値がradioまたはcheckboxである場合を除き、省略可能です。
+    ページを再読み込みするとき、GeckkoおよびIEは再読み込み前に値が変更された場合にHTMLソースで指定された値を無視する点には注意 -->
+<div class="container">
+<div class="row">
+<h2>予定入力</h2>
+<%= form_for @user, url: {action: :update} do |f| %>
+  <% day = Date.today %>
+
+  <%= f.hidden_field :email %>
+  <%= f.hidden_field :encrypted_password %>
+  <%= f.hidden_field :role %>
+
+  <%= f.fields_for :schedules  do |schedule_form| %>
+    <div class="field">
+      <%= schedule_form.label day %>
+      <%= schedule_form.hidden_field :target_day, :value => day %>
+    </div>
+    <div class="field">
+      <%= schedule_form.label '行ける・行けないを選択' %>
+      <label><%= schedule_form.radio_button :priority, true, checked: true %></label>
+      <label><%= schedule_form.radio_button :priority, false %></label>
+      <% day += 1 %>
+    </div>
+  <% end %>
+
+  <%= f.submit 'Save' %>
+<% end %>
+</div>
+</div>
+
+<!-- radio_buttonのchecked,trueは、
+　　　フォームを作成するケースで元からチェックを入れたい(チェック済み)場合、確認画面から戻ってきたときにチェックがあらかじめ入っている処理にしたい場合に利用する -->
+
+<!-- [Ruby on Railsでform_forでラジオボタンを設置する方法](http://freesworder.net/rails-form_for-radio/) -->
