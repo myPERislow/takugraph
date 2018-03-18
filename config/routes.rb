@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :orders do
+  resources :orders, only:[:new, :create] do
     collection do
       post 'confirm'
     end

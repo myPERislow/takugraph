@@ -24,28 +24,40 @@ class OrdersController < ApplicationController
         if current_user.present?
           @order.user = current_user
         end
-        @order.save
-        OrderMailer.post_order(@order).deliver_later
-        flash[:notice] = "申し込みが完了しました"
-        redirect_to(root_path) and return
+        if @order.save
+          OrderMailer.post_order(@order).deliver_later
+          flash[:notice] = "申し込みが完了しました"
+          redirect_to(root_path) and return
+        else
+          flash[:notice] = "申し込みに失敗しました"
+          redirect_to(new_order)
+        end
       end
 
       if t.nil?
         if current_user.present?
           @order.user_id = current_user.id
         end
-        @order.save
-        OrderMailer.post_order(@order).deliver_later
-        flash[:notice] = "申し込みが完了しました"
-        redirect_to(root_path) and return
+        if @order.save
+          OrderMailer.post_order(@order).deliver_later
+          flash[:notice] = "申し込みが完了しました"
+          redirect_to(root_path) and return
+        else
+          flash[:notice] = "申し込みに失敗しました"
+          redirect_to(new_order)
+        end
       else
         if current_user.present?
           @order.user_id = current_user.id
         end
-        @order.update(photographer_id: t.user_id)
-        OrderMailer.photographer_post_order(@order).deliver_later
-        flash[:notice] = "申し込みが完了しました"
-        redirect_to(root_path) and return
+        if @order.update(photographer_id: t.user_id)
+          OrderMailer.photographer_post_order(@order).deliver_later
+          flash[:notice] = "申し込みが完了しました"
+          redirect_to(root_path) and return
+        else
+          flash[:notice] = "申し込みに失敗しました"
+          redirect_to(new_order)
+        end
       end
     else
       render :new
