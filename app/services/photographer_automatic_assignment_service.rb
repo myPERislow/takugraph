@@ -1,6 +1,5 @@
 class PhotographerAutomaticAssignmentService
   def initialize(order)
-    @l = []
     @order = order
     @area = @order.area
     @photographers = User.all.photographer.search_area(@area)
@@ -11,14 +10,15 @@ class PhotographerAutomaticAssignmentService
 
   def execute
     # シンプルに回す
-    photographer_schedules = @photographers.map(&:schedules)
-    photographer_schedules.each do |photographer_schedule|
-      photographer_schedule.each do |photographer|
-        if (photographer.target_day == @date && photographer.status == true)
-          @l.push(photographer)
-        end
-      end
-    end
+    # photographer_schedules_all = @photographers.map(&:schedules)
+    # photographer_schedules_all.each do |photographer_schedules|
+    #   photographer_schedules.each do |photographer_schedule|
+    #     if (photographer_schedule.target_day == @date && photographer_schedule.status == true)
+    #       @l.push(photographer_schedule)
+    #     end
+    #   end
+    # end
+    @l = PhotographerSchedule.where(target_day: @date, priority: true, user: @photographers).map(&:photographer)
     return @l
   end
 end
