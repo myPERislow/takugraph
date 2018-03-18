@@ -1,6 +1,5 @@
 class Admin::OrdersController < Admin::BaseController
   before_action :set_order, only: [:edit, :update, :destroy]
-  before_action :member_not_index, only: [:index]
 
   class InvalidPhotographerAssignment < StandardError; end
 
@@ -49,11 +48,5 @@ class Admin::OrdersController < Admin::BaseController
         :email,
         addtional_plans_attributes: [:photo_number, :with_illustration]
       )
-    end
-
-    def member_not_index
-      if current_user.member?
-        redirect_to user_admin_order_path(current_user)
-      end
     end
 end
