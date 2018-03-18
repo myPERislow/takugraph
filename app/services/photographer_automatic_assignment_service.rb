@@ -23,7 +23,7 @@ class PhotographerAutomaticAssignmentService
 
       photographer_schedule.each do |photographer|
 
-        if (photographer.target_day == @date && photographer.priority == true)
+        if (photographer.target_day == @date && photographer.status == true)
           @l.push(photographer)
         end
 

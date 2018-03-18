@@ -53,7 +53,7 @@ class UsersController < ApplicationController
         :encrypted_password,
         :role,
         :order_id,
-        schedules_attributes: [:target_day, :priority]
+        schedules_attributes: [:target_day, :status]
       )
     end
 end

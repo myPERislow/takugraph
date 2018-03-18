@@ -20,14 +20,14 @@
     <div class="field">
       <%= schedule_form.label '行ける・行けないを選択' %>
       <% if current_user.schedules.where(target_day: Date.today + i).present? %>
-        <label><%= schedule_form.radio_button :priority,true,{checked: current_user.schedules.where(target_day: Date.today + i).last.priority } %> 行ける </label>
+        <label><%= schedule_form.radio_button :status,true,{checked: current_user.schedules.where(target_day: Date.today + i).last.status } %> 行ける </label>
       <% else %>
-        <label><%= schedule_form.radio_button :priority,true  %> 行ける </label>
+        <label><%= schedule_form.radio_button :status,true  %> 行ける </label>
       <% end %>
       <% if current_user.schedules.where(target_day: Date.today + i).present? %>
-        <label><%= schedule_form.radio_button :priority,false ,{checked: !current_user.schedules.where(target_day: Date.today + i).last.priority }%> 行けない </label>
+        <label><%= schedule_form.radio_button :status,false ,{checked: !current_user.schedules.where(target_day: Date.today + i).last.status }%> 行けない </label>
       <% else %>
-        <label><%= schedule_form.radio_button :priority,false %> 行けない </label>
+        <label><%= schedule_form.radio_button :status,false %> 行けない </label>
       <% end %>
       <% i += 1 %>
       <% day += 1 %>
@@ -44,4 +44,4 @@
 　　　フォームを作成するケースで元からチェックを入れたい(チェック済み)場合、確認画面から戻ってきたときにチェックがあらかじめ入っている処理にしたい場合に利用する -->
 
 <!-- [Ruby on Railsでform_forでラジオボタンを設置する方法](http://freesworder.net/rails-form_for-radio/) -->
-<!-- @user.schedules[0].priority -->
+<!-- @user.schedules[0].status -->
