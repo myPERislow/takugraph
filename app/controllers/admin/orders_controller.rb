@@ -1,7 +1,15 @@
 class Admin::OrdersController < Admin::BaseController
-  before_action :set_order, only: [:edit, :update, :destroy]
+  before_action :set_order, only: [:edit, :update, :destroy, :show]
 
   class InvalidPhotographerAssignment < StandardError; end
+
+
+  def index
+    @orders = Order.all
+  end
+
+  def show
+  end
 
   def user
     @orders = Order.where(user_id: params[:id])

@@ -1,11 +1,8 @@
 class OrdersController < ApplicationController
+
   def new
     @order = Order.new
     @order.addtional_plans.build
-  end
-
-  def index
-    @orders = Order.all
   end
 
   def create
@@ -64,10 +61,6 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
 
     render :new
-  end
-
-  def show
-    @order = Order.find(params[:id])
   end
 
   private

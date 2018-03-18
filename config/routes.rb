@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
 
-  get 'orders/new'
+  resources :orders do
+    collection do
+      post 'confirm'
+    end
+  end
 
-  get 'orders/index'
-
-  get 'orders/create'
-
-  get 'orders/confirm'
-
-  get 'orders/back'
+  # 入力画面に戻った際のurlをusers/backではなく、users/newにするためにroutingを設定
+  post 'orders/new', to:'orders#back'
 
   root to: 'albums#index'
 
@@ -30,9 +29,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :orders do
-      collection do
-        post 'confirm'
-      end
       member do
         get 'user'
       end
@@ -49,8 +45,7 @@ Rails.application.routes.draw do
   patch '/users/:id/update', to:'users#update', as: 'users_update_shcedule'
   get '/users/:id/schedule/index', to:'users#show_schedule', as: 'users_schedule'
   delete '/users/:id', to: 'users#destroy', as: 'users_destroy'
-  # 入力画面に戻った際のurlをusers/backではなく、users/newにするためにroutingを設定
-  post '/admin/orders/new', to:'admin/orders#back'
+
 end
 
 # After signing in a user, confirming the account or updating the password,
