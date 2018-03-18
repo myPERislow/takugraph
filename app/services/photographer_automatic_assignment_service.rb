@@ -11,7 +11,7 @@ class PhotographerAutomaticAssignmentService
 
   def execute
     # シンプルに回す
-    photographer_schedules = @photographers.map { |e| e.schedules  }
+    photographer_schedules = @photographers.map(&:schedules)
     photographer_schedules.each do |photographer_schedule|
       photographer_schedule.each do |photographer|
         if (photographer.target_day == @date && photographer.status == true)
