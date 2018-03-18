@@ -21,10 +21,10 @@
       <br/>
       = @order.last_name
     .form-group
-      = f.label :day
-      = f.hidden_field :day , :class => "form-control"
+      = f.label :date
+      = f.hidden_field :date , :class => "form-control"
       <br/>
-      = @order.day
+      = @order.date
     .form-group
       = f.label :location
       = f.hidden_field :location, :class => "form-control"
@@ -65,7 +65,7 @@
 = form_for @order, url: {:controller => :orders, :action => :new} do |f|
   = f.hidden_field :first_name, :class => "form-control"
   = f.hidden_field :last_name, :class => "form-control"
-  = f.hidden_field :day , :class => "form-control"
+  = f.hidden_field :date , :class => "form-control"
   = f.hidden_field :location, :class => "form-control"
   = f.hidden_field :phone_number, :class => "form-control"
   = f.hidden_field :area_id, :class => "form-control"

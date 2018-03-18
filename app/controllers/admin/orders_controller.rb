@@ -115,7 +115,7 @@ class Admin::OrdersController < ApplicationController
       params.require(:order).permit(
         :first_name,
         :last_name,
-        :day,
+        :date,
         :location,
         :phone_number,
         :comment,

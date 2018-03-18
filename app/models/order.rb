@@ -22,7 +22,7 @@ class Order < ApplicationRecord
       errors[:base] << "名前は必ず入力してください"
     end
 
-    if day.blank?
+    if date.blank?
       errors[:base] << "日程は必ず入力してください"
     end
 
@@ -33,7 +33,7 @@ class Order < ApplicationRecord
     if phone_number.blank?
       errors[:base] << "電話番号は必ず入力してください"
     end
-    
+
     if email.blank?
       errors[:base] << "メールアドレスは必ず入力してください"
     end

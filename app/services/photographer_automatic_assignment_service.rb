@@ -10,7 +10,7 @@ class PhotographerAutomaticAssignmentService
 
       # 第二段階(計二段階中) - dateによる絞り込み
 
-    @date = @order.day
+    @date = @order.date
   end
 
   def execute
@@ -31,6 +31,6 @@ class PhotographerAutomaticAssignmentService
 
     end
 
-    
+
   end
 end
