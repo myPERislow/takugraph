@@ -20,38 +20,23 @@ class OrdersController < ApplicationController
       if @l.present?
         # tは配列の中からランダム抽出したもの
         t = @l.sample
-      else
-        if current_user.present?
-          @order.user = current_user
-        end
-        if @order.save
-          OrderMailer.post_order(@order).deliver_later
-          flash[:notice] = "申し込みが完了しました"
-          redirect_to(root_path) and return
-        else
-          flash[:notice] = "申し込みに失敗しました"
-          redirect_to(new_order)
-        end
-      end
-
-      if t.nil?
-        if current_user.present?
-          @order.user_id = current_user.id
-        end
-        if @order.save
-          OrderMailer.post_order(@order).deliver_later
-          flash[:notice] = "申し込みが完了しました"
-          redirect_to(root_path) and return
-        else
-          flash[:notice] = "申し込みに失敗しました"
-          redirect_to(new_order)
-        end
-      else
         if current_user.present?
           @order.user_id = current_user.id
         end
         if @order.update(photographer_id: t.user_id)
           OrderMailer.photographer_post_order(@order).deliver_later
+          flash[:notice] = "申し込みが完了しました"
+          redirect_to(root_path) and return
+        else
+          flash[:notice] = "申し込みに失敗しました"
+          redirect_to(new_order)
+        end
+      else
+        if current_user.present?
+          @order.user_id = current_user.id
+        end
+        if @order.save
+          OrderMailer.post_order(@order).deliver_later
           flash[:notice] = "申し込みが完了しました"
           redirect_to(root_path) and return
         else
@@ -71,7 +56,6 @@ class OrdersController < ApplicationController
 
   def back
     @order = Order.new(order_params)
-
     render :new
   end
 
