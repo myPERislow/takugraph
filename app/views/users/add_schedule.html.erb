@@ -5,22 +5,34 @@
 <h2>予定入力</h2>
 <%= form_for @user, url: {action: :update} do |f| %>
   <% day = Date.today %>
+  <% i = 0 %>
 
   <%= f.hidden_field :email %>
   <%= f.hidden_field :encrypted_password %>
   <%= f.hidden_field :role %>
 
   <%= f.fields_for :schedules  do |schedule_form| %>
+  <% if day < ( Date.today >> 1 ) %>
     <div class="field">
       <%= schedule_form.label day %>
       <%= schedule_form.hidden_field :target_day, :value => day %>
     </div>
     <div class="field">
       <%= schedule_form.label '行ける・行けないを選択' %>
-      <label><%= schedule_form.radio_button :priority, true, checked: true %></label>
-      <label><%= schedule_form.radio_button :priority, false %></label>
+      <% if current_user.schedules.where(target_day: Date.today + i).present? %>
+        <label><%= schedule_form.radio_button :priority,true,{checked: current_user.schedules.where(target_day: Date.today + i).last.priority } %> 行ける </label>
+      <% else %>
+        <label><%= schedule_form.radio_button :priority,true  %> 行ける </label>
+      <% end %>
+      <% if current_user.schedules.where(target_day: Date.today + i).present? %>
+        <label><%= schedule_form.radio_button :priority,false ,{checked: !current_user.schedules.where(target_day: Date.today + i).last.priority }%> 行けない </label>
+      <% else %>
+        <label><%= schedule_form.radio_button :priority,false %> 行けない </label>
+      <% end %>
+      <% i += 1 %>
       <% day += 1 %>
     </div>
+  <% end %>
   <% end %>
 
   <%= f.submit 'Save' %>
@@ -32,3 +44,4 @@
 　　　フォームを作成するケースで元からチェックを入れたい(チェック済み)場合、確認画面から戻ってきたときにチェックがあらかじめ入っている処理にしたい場合に利用する -->
 
 <!-- [Ruby on Railsでform_forでラジオボタンを設置する方法](http://freesworder.net/rails-form_for-radio/) -->
+<!-- @user.schedules[0].priority -->
