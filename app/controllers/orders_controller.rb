@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
         t = @l.sample
       else
         if current_user.present?
-          @order.user_id = current_user.id
+          @order.user = current_user
         end
         @order.save
         OrderMailer.post_order(@order).deliver_later
