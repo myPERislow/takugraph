@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-
   def new
     @order = Order.new
     @order.addtional_plans.build
@@ -24,7 +23,6 @@ class OrdersController < ApplicationController
           @order.user_id = current_user.id
         end
         if @order.update(photographer_id: t.user_id)
-          OrderMailer.photographer_post_order(@order).deliver_later
           flash[:notice] = "申し込みが完了しました"
           redirect_to(root_path) and return
         else
@@ -36,7 +34,6 @@ class OrdersController < ApplicationController
           @order.user_id = current_user.id
         end
         if @order.save
-          OrderMailer.post_order(@order).deliver_later
           flash[:notice] = "申し込みが完了しました"
           redirect_to(root_path) and return
         else

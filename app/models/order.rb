@@ -1,5 +1,7 @@
 class Order < ApplicationRecord
   validate :add_error_order
+  after_update :send_email_update
+  after_save :send_email
 
   # Railsの慣例では、相手のモデル上の外部キーを保持しているカラム名については、そのモデル名にサフィックス_idを追加した関連付け名が使用されることを前提としている。
   # :foreign_keyオプションを使用すると外部キーの名前を直接してすることができる。
@@ -12,6 +14,14 @@ class Order < ApplicationRecord
   belongs_to :user, optional: true
 
   private
+
+  def send_email
+    OrderMailer.post_order(@order).deliver_later
+  end
+
+  def send_email_update
+    OrderMailer.photographer_post_order(@order).deliver_later
+  end
 
   def add_error_order
     if first_name.blank?

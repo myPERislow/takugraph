@@ -3,7 +3,6 @@ class Admin::OrdersController < Admin::BaseController
 
   class InvalidPhotographerAssignment < StandardError; end
 
-
   def index
     @orders = Order.all
   end
@@ -21,7 +20,6 @@ class Admin::OrdersController < Admin::BaseController
 
   def update
     if @order.update(order_params)
-      OrderMailer.update_order(@order).deliver_later
       redirect_to admin_order_path, notice: 'Order was successfully updated.'
     else
       render :edit
