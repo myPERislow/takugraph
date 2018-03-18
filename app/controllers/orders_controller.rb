@@ -17,36 +17,35 @@ class OrdersController < ApplicationController
       @l = []
       PhotographerAutomaticAssignmentService.new(@order,@l).execute
 
-    if @l
-      t = @l.sample
-    else
-      if current_user.present?
-        @order.user_id = current_user.id
+      if @l.present?
+        t = @l.sample
+      else
+        if current_user.present?
+          @order.user_id = current_user.id
+        end
+        @order.save
+        OrderMailer.post_order(@order).deliver_later
+        flash[:notice] = "申し込みが完了しました"
+        redirect_to(root_path) and return
       end
-      @order.save
-      OrderMailer.post_order(@order).deliver_later
-      flash[:notice] = "申し込みが完了しました"
-      redirect_to(root_path) and return
-    end
 
-    if t.nil?
-      if current_user.present?
-        @order.user_id = current_user.id
+      if t.nil?
+        if current_user.present?
+          @order.user_id = current_user.id
+        end
+        @order.save
+        OrderMailer.post_order(@order).deliver_later
+        flash[:notice] = "申し込みが完了しました"
+        redirect_to(root_path) and return
+      else
+        if current_user.present?
+          @order.user_id = current_user.id
+        end
+        @order.update(photographer_id: t.user_id)
+        OrderMailer.photographer_post_order(@order).deliver_later
+        flash[:notice] = "申し込みが完了しました"
+        redirect_to(root_path) and return
       end
-      @order.save
-      OrderMailer.post_order(@order).deliver_later
-      flash[:notice] = "申し込みが完了しました"
-      redirect_to(root_path) and return
-    else
-      if current_user.present?
-        @order.user_id = current_user.id
-      end
-      @order.update(photographer_id: t.user_id)
-      OrderMailer.photographer_post_order(@order).deliver_later
-      flash[:notice] = "申し込みが完了しました"
-      redirect_to(root_path) and return
-    end
-
     else
       render :new
     end
