@@ -1,4 +1,4 @@
-class PhotographerAutomaticAssignmentService
+class PhotographerSearchService
   def initialize(order)
     @order = order
     @area = @order.area

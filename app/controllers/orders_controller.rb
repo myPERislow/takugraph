@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
         # 第一段階(計二段階中) - エリアによる絞り込み
     if @order.present?
       # @lはphotographerのorderと一致するdateの配列をphotographer_automatic_assignment_serviceにより格納するためのもの
-      @l = PhotographerAutomaticAssignmentService.new(@order).execute
+      @l = PhotographerSearchService.new(@order).execute
 
       if @l.present?
         # tは配列の中からランダム抽出したもの
