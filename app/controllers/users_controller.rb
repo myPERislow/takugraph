@@ -30,8 +30,10 @@ class UsersController < ApplicationController
 
   def add_schedule
     @user = User.find(params[:id])
-    30.times do
-      @user.schedules.build
+    if @user.schedules.last.target_day < ( Date.today >> 1 )
+      30.times do
+        @user.schedules.build
+      end
     end
   end
 
