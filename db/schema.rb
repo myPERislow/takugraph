@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180318043512) do
+ActiveRecord::Schema.define(version: 20180318052127) do
 
   create_table "addtional_plans", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "order_id"
+    t.integer "order_id", null: false
     t.boolean "with_illustration"
     t.boolean "addtion_photo"
     t.integer "photo_number"
