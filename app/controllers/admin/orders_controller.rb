@@ -124,7 +124,7 @@ class Admin::OrdersController < ApplicationController
         :errors,
         :user_id,
         :email,
-        addtional_plans_attributes: [:photo_number, :illust]
+        addtional_plans_attributes: [:photo_number, :with_illustration]
       )
     end
 
