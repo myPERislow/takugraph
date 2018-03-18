@@ -13,22 +13,22 @@
     .form-group
       = f.label :first_name
       = f.hidden_field :first_name, :class => "form-control"
-      <br/>
+      %br
       = @order.first_name
     .form-group
       = f.label :last_name
       = f.hidden_field :last_name, :class => "form-control"
-      <br/>
+      %br
       = @order.last_name
     .form-group
       = f.label :date
       = f.hidden_field :date , :class => "form-control"
-      <br/>
+      %br
       = @order.date
     .form-group
       = f.label :location
       = f.hidden_field :location, :class => "form-control"
-      <br/>
+      %br
       = @order.location
     .form-group
       = f.label :email
@@ -36,29 +36,29 @@
     .form-group
       = f.label :phone_number
       = f.hidden_field :phone_number, :class => "form-control"
-      <br/>
+      %br
       = @order.phone_number
     .form-group
       = f.label :area_id
       = f.hidden_field :area_id, :class => "form-control"
-      <br/>
+      %br
       = @order.area.prefecture
     .form-group
       = f.label :comment
       = f.hidden_field :comment, :class => "form-control"
-      <br/>
+      %br
       = @order.comment
     .form-group
       = f.fields_for :addtional_plans do |addtional_plan|
         = addtional_plan.label 'イラストオプション'
-        <br>
+        %br
         = addtional_plan.hidden_field :with_illustration, :class => "form-control"
         - if @order.addtional_plans[0].with_illustration
           <p>追加する</p>
         - else
           <p>追加しない</p>
         = addtional_plan.label '写真追加オプション'
-        <br>
+        %br
         = addtional_plan.hidden_field :photo_number, :class => "form-control"
         = "#{@order.addtional_plans[0].photo_number}枚の写真を追加する"
     = f.submit '申し込み', :class => "btn btn-primary"
