@@ -18,6 +18,7 @@ class OrdersController < ApplicationController
       @l = PhotographerAutomaticAssignmentService.new(@order).execute
 
       if @l.present?
+        # tは配列の中からランダム抽出したもの
         t = @l.sample
       else
         if current_user.present?
