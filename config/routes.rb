@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'orders/new'
+
+  get 'orders/index'
+
+  get 'orders/create'
+
+  get 'orders/confirm'
+
+  get 'orders/back'
+
   root to: 'albums#index'
 
   get 'home/flow', to: 'home#flow'
