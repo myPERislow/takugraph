@@ -12,10 +12,11 @@
           - if current_user.member?
             %li.nav-item
               = link_to '申し込み一覧', user_admin_order_path , class: "nav-link"
-          - unless current_user.admin?
+            %li.nav-item
+              = link_to '依頼一覧',user_admin_order_path(current_user) , class: 'nav-link'
+          - if current_user.photographer?
             %li.nav-item
               = link_to '依頼一覧', admin_orders_path , class: 'nav-link'
-          - if current_user.photographer?
             %li.nav-item
               = link_to '予定入力', users_add_schedule_path(id: current_user.id), class: 'nav-link'
           - if current_user.admin?
@@ -29,7 +30,7 @@
           %th id
           %th first_name
           %th last_name
-          %th day
+          %th date
           %th location
           %th phone_number
           %th area
@@ -41,7 +42,7 @@
             %td= order.id
             %td= order.first_name
             %td= order.last_name
-            %td= order.day
+            %td= order.date
             %td= order.location
             %td= order.phone_number
             %td= order.area.prefecture

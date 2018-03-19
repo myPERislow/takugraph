@@ -1,0 +1,76 @@
+/ 確認ページを作成します。
+/ 登録や戻る際にPOSTでデータを送る為に`hidden_field`で情報を保持しています。
+/ また、戻る処理を実現する為に、name属性を使用してcreateアクション内で分岐を行います
+/ データ保持
+/ 戻る為のname
+
+= render 'layouts/header'
+.page-header
+  %h1 申し込み確認フォーム
+
+= form_for @order, url: {:controller => :orders, :action => :create} do |f|
+  .container
+    .form-group
+      = f.label :first_name
+      = f.hidden_field :first_name, :class => "form-control"
+      %br
+      = @order.first_name
+    .form-group
+      = f.label :last_name
+      = f.hidden_field :last_name, :class => "form-control"
+      %br
+      = @order.last_name
+    .form-group
+      = f.label :date
+      = f.hidden_field :date , :class => "form-control"
+      %br
+      = @order.date
+    .form-group
+      = f.label :location
+      = f.hidden_field :location, :class => "form-control"
+      %br
+      = @order.location
+    .form-group
+      = f.label :email
+      = f.text_field :email, :class => "form-control", placeholder: "hogehoge@example.com"
+    .form-group
+      = f.label :phone_number
+      = f.hidden_field :phone_number, :class => "form-control"
+      %br
+      = @order.phone_number
+    .form-group
+      = f.label :area_id
+      = f.hidden_field :area_id, :class => "form-control"
+      %br
+      = @order.area.prefecture
+    .form-group
+      = f.label :comment
+      = f.hidden_field :comment, :class => "form-control"
+      %br
+      = @order.comment
+    .form-group
+      = f.fields_for :addtional_plans do |addtional_plan|
+        = addtional_plan.label 'イラストオプション'
+        %br
+        = addtional_plan.hidden_field :with_illustration, :class => "form-control"
+        - if @order.addtional_plans[0].with_illustration
+          <p>追加する</p>
+        - else
+          <p>追加しない</p>
+        = addtional_plan.label '写真追加オプション'
+        %br
+        = addtional_plan.hidden_field :photo_number, :class => "form-control"
+        = "#{@order.addtional_plans[0].photo_number}枚の写真を追加する"
+    = f.submit '申し込み', :class => "btn btn-primary"
+= form_for @order, url: {:controller => :orders, :action => :new} do |f|
+  = f.hidden_field :first_name, :class => "form-control"
+  = f.hidden_field :last_name, :class => "form-control"
+  = f.hidden_field :date , :class => "form-control"
+  = f.hidden_field :location, :class => "form-control"
+  = f.hidden_field :phone_number, :class => "form-control"
+  = f.hidden_field :area_id, :class => "form-control"
+  = f.hidden_field :comment, :class => "form-control"
+  = f.fields_for :addtional_plans do |addtional_plan|
+    = addtional_plan.hidden_field :with_illustration, :class => "form-control"
+    = addtional_plan.hidden_field :photo_number, :class => "form-control"
+  = f.submit '入力画面に戻る',  :class => "btn btn-primary btn-back"

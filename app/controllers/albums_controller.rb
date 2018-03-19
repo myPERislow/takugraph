@@ -16,12 +16,7 @@ class AlbumsController < ApplicationController
   # GET /album/new
   def new
     @album = Album.new
-    @order = params[:order]
-  end
-
-  # GET /album/1/edit
-  def edit
-    @order = @album.order_id
+    @order_id = params[:order_id]
   end
 
   # POST /album

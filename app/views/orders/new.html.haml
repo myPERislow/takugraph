@@ -1,0 +1,41 @@
+= render 'layouts/header'
+= render 'layouts/error'
+.page-header
+  %h1 申し込みフォーム
+  = form_for @order, url: {:controller => :orders, :action => :confirm} do |f|
+    .container
+      .form-group
+        = f.label :first_name
+        = f.text_field :first_name, :class => "form-control", placeholder: "佐藤"
+      .form-group
+        = f.label :last_name
+        = f.text_field :last_name , :class => "form-control", placeholder: "匠"
+      .form-group
+        = f.label :date
+        %br
+        = f.date_select :date , :class => "form-control"
+      .form-group
+        = f.label :location
+        = f.text_field :location, :class => "form-control", placeholder: "自然の多い公園の近く"
+      .form-group
+        = f.label :email
+        = f.text_field :email, :class => "form-control", placeholder: "hogehoge@example.com"
+      .form-group
+        = f.label :phone_number
+        = f.text_field :phone_number, :class => "form-control", placeholder: "08088889999"
+      .form-group
+        = f.label :area_id
+        = f.collection_select :area_id, Area.all, :id, :prefecture, {prompt: "選択してください"}, {class: "form-control"}
+      .form-group
+        = f.label :comment
+        = f.text_area :comment, :class => "form-control", placeholder: "楽しみにしています!"
+      .form-group
+        = f.fields_for :addtional_plans do |addtional_plan|
+          = addtional_plan.label 'イラストオプション'
+          <br>
+          = addtional_plan.select :with_illustration, [["イラストオプションを選択", false],["イラストオプションを追加する", true],["イラストオプションを追加しない", false]], :class => "form-control"
+          <br>
+          = addtional_plan.label '写真追加オプション'
+          <br>
+          = addtional_plan.select :photo_number, [["写真枚数を追加する場合は選択してください", 0],["1枚",1],["2枚", 2],["3枚",3],["4枚", 4], ["5枚", 5]], :class => "form-control"
+      = f.submit '申し込み確認画面へ', :class => "btn btn-primary"

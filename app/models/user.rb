@@ -12,10 +12,7 @@ class User < ApplicationRecord
   belongs_to :area, optional: true
 
   # Scope
-  scope :admin, -> { where(role: 1)}
-  scope :photographer, -> { where(role: 2)}
-  scope :member, -> { where(role: 3)}
-  scope :search_area, ->(area){ where(area_id: area )}
+  scope :search_area, ->(area_id){ where(area_id: area_id )}
   # あとで、orders_controller.rb(本当はserviceディレクトリの中のAutomatingのところにあるやつ)で、
   #.where(area_id: @area.id)を.search_area(@area.id)に書き換えたら、
   # このコメントは削除する

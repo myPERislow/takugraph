@@ -7,8 +7,8 @@
       = f.label :last_name
       = f.text_field :last_name , :class => "form-control", placeholder: "匠"
     .form-group
-      = f.label :day
-      = f.date_select :day , :class => "form-control"
+      = f.label :date
+      = f.date_select :date , :class => "form-control"
     .form-group
       = f.label :location
       = f.text_field :location, :class => "form-control", placeholder: "自然の多い公園の近く"
@@ -32,7 +32,7 @@
       = f.fields_for :addtional_plans do |addtional_plan|
         = addtional_plan.label 'イラストオプション'
         <br>
-        = addtional_plan.select :illust, [["イラストオプションを選択", false],["イラストオプションを追加する", true],["イラストオプションを追加しない", false]], :class => "form-control"
+        = addtional_plan.select :with_illustration, [["イラストオプションを選択", false],["イラストオプションを追加する", true],["イラストオプションを追加しない", false]], :class => "form-control"
         <br>
         = addtional_plan.label '写真追加オプション'
         <br>
