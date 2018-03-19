@@ -10,22 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180318052127) do
+ActiveRecord::Schema.define(version: 20180319011554) do
 
   create_table "addtional_plans", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "order_id", null: false
     t.boolean "with_illustration"
     t.boolean "addtion_photo"
     t.integer "photo_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "order_id_id"
+    t.bigint "order_id"
+    t.index ["order_id"], name: "index_addtional_plans_on_order_id"
+    t.index ["order_id_id"], name: "index_addtional_plans_on_order_id_id"
   end
 
   create_table "albums", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.json "photographs"
-    t.integer "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "order_id"
+    t.index ["order_id"], name: "index_albums_on_order_id"
   end
 
   create_table "areas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -84,4 +88,6 @@ ActiveRecord::Schema.define(version: 20180318052127) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addtional_plans", "orders"
+  add_foreign_key "albums", "orders"
 end
