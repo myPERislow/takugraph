@@ -12,8 +12,6 @@
           - if current_user.member?
             %li.nav-item
               = link_to '申し込み一覧', user_admin_order_path , class: "nav-link"
-            %li.nav-item
-              = link_to '依頼一覧',user_admin_order_path(current_user) , class: 'nav-link'
           - if current_user.photographer?
             %li.nav-item
               = link_to '依頼一覧', admin_orders_path , class: 'nav-link'

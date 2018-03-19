@@ -39,7 +39,7 @@
       %table.container
         %th
           %td= link_to image_tag(@order.album.photographs[0].url(:thumb)), show_for_order_album_path
-    - if current_user.admin?
+    - if current_user.member?
       = link_to '戻る', user_admin_order_path(current_user), class: 'btn btn-primary admin-botton'
     - else
       = link_to '戻る', admin_orders_path, class: 'btn btn-primary admin-botton'

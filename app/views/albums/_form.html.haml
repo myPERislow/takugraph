@@ -15,7 +15,7 @@
   - rescue => h
     = f.hidden_field :order_id , :value => order
   - require_photo_number = 10
-  - addtional_plan = AddtionalPlan.where(order_id: order.id).first
+  - addtional_plan = AddtionalPlan.where(order_id: order).first
   - require_photo_number += addtional_plan.photo_number
   %br
   最低納品枚数: #{require_photo_number}枚

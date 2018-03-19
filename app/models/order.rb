@@ -8,7 +8,7 @@ class Order < ApplicationRecord
   has_one :album, dependent: :destroy, inverse_of: :order
   belongs_to :area
 
-  has_one :addtional_plans
+  has_many :addtional_plans
   accepts_nested_attributes_for :addtional_plans
 
   belongs_to :user, optional: true

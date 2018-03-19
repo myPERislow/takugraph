@@ -1,4 +1,4 @@
-source 'https://rubygems.org' 
+source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -81,6 +81,9 @@ gem 'sinatra', require: false # ダッシュボードを利用するため
 
 # railからslackにメッセージを送るslack-notifier
 gem "slack-notifier"
+
+# 日本語対応
+gem 'rails-i18n'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

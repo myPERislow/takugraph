@@ -10,15 +10,17 @@ class PhotographerSearchService
 
   def execute
     # シンプルに回す
-    # photographer_schedules_all = @photographers.map(&:schedules)
-    # photographer_schedules_all.each do |photographer_schedules|
-    #   photographer_schedules.each do |photographer_schedule|
-    #     if (photographer_schedule.target_day == @date && photographer_schedule.status == true)
-    #       @l.push(photographer_schedule)
-    #     end
-    #   end
-    # end
-    @l = PhotographerSchedule.where(target_day: @date, priority: true, user: @photographers).map(&:photographer)
+    @l = []
+    photographer_schedules_all = @photographers.map(&:schedules)
+    photographer_schedules_all.each do |photographer_schedules|
+      photographer_schedules.each do |photographer_schedule|
+        if (photographer_schedule.target_day.to_date == @date.to_date && photographer_schedule.status == true)
+          @l.push(photographer_schedule)
+        end
+      end
+    end
+    # これはエラーになる
+    # @l = PhotographerSchedule.where(target_day: @date, priority: true, user: @photographers).map(&:photographer)
     return @l
   end
 end

@@ -32,7 +32,9 @@
       = @order.location
     .form-group
       = f.label :email
-      = f.text_field :email, :class => "form-control", placeholder: "hogehoge@example.com"
+      = f.hidden_field :email, :class => "form-control"
+      %br
+      = @order.email
     .form-group
       = f.label :phone_number
       = f.hidden_field :phone_number, :class => "form-control"

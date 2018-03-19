@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
           redirect_to(root_path) and return
         else
           flash[:notice] = "申し込みに失敗しました"
-          redirect_to(new_order)
+          redirect_to(new_order_path)
         end
       else
         if current_user.present?
@@ -38,7 +38,7 @@ class OrdersController < ApplicationController
           redirect_to(root_path) and return
         else
           flash[:notice] = "申し込みに失敗しました"
-          redirect_to(new_order)
+          redirect_to(new_order_path)
         end
       end
     else
